@@ -1,6 +1,6 @@
-# Tower Defense Game Readme
+# Stronghold Guardians
 
-Welcome to our Tower Defense game, a project developed for the university course using Unity version 2022.3.21f1.
+**Welcome to our Tower Defense game, a project developed for the university course using Unity version 2022.3.21f1.**
 
 ## Introduction
 
