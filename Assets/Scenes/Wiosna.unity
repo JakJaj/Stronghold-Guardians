@@ -6152,9 +6152,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05d136f5298d0884c817480215cba388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  range: 5
+  range: 4
   enemyTag: Enemy
+  partToRotate: {fileID: 532895638}
+  turnSpeed: 10
+--- !u!4 &532895638 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c9a6c47e947414847a353a402f8c5766, type: 3}
+  m_PrefabInstance: {fileID: 532895633}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &534113139
 PrefabInstance:
   m_ObjectHideFlags: 0
