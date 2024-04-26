@@ -7,19 +7,19 @@ public class Bullet : MonoBehaviour {
     public float speed = 70f;
     public  GameObject impactEffect;
 
-    public void Seek (Transfor _target)
+    public void Seek (Transform _target)
     {
-        target = _target;
+        Target = _target;
     }
 
     void Update () {
-        if (target == null)
+        if (Target == null)
         {
             Destroy(gameObject);
             return;
         }
 
-        Vector3 dir = target.position - transform.position;
+        Vector3 dir = Target.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
 
         if (dir.magnitude <= distanceThisFrame)
@@ -36,7 +36,7 @@ public class Bullet : MonoBehaviour {
     {
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effectIns, 2f);
-        Destroy(target.gameObject);
+        Destroy(Target.gameObject);
         Destroy(gameObject);
     }
 }
