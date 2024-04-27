@@ -26284,10 +26284,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4826641790909885825, guid: 088b58781433af747bb11f3ec25de62f, type: 3}
-      propertyPath: turnSpeed
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 5297957672406822841, guid: 088b58781433af747bb11f3ec25de62f, type: 3}
       propertyPath: m_Name
       value: weapon_cannon
