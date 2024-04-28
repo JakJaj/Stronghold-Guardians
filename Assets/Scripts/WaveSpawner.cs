@@ -13,34 +13,28 @@ public class WaveSpawner : MonoBehaviour
 
     void Update()
     {
-        if (enemies.Count == 0 && countdown <= 0f)
+        if (countdown <= 0f)
         {
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves;
         }
+
         countdown -= Time.deltaTime;
     }
 
     IEnumerator SpawnWave()
     {
-        yield return new WaitForSeconds(3f);
-
         waveIndex++;
+
         for (int i = 0; i < waveIndex; i++)
         {
             SpawnEnemy();
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
     void SpawnEnemy()
     {
-        GameObject enemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation).gameObject;
-        enemies.Add(enemy);
-    }
-
-    public void RemoveEnemy(GameObject enemy)
-    {
-        enemies.Remove(enemy);
+        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
     }
 }
