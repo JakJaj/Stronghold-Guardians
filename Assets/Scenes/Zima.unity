@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15349,7 +15349,6 @@ Transform:
   - {fileID: 73666015}
   - {fileID: 411462387}
   - {fileID: 380459164}
-  - {fileID: 1912042766}
   - {fileID: 1697589799}
   - {fileID: 1288199594}
   - {fileID: 575188663}
@@ -15453,6 +15452,7 @@ Transform:
   - {fileID: 1813242087}
   - {fileID: 31307049}
   - {fileID: 198637782}
+  - {fileID: 2074350574}
   m_Father: {fileID: 1894803197}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &1908956753
@@ -15542,68 +15542,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1001 &1912042765
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1908956752}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: e373ca7b46d644daa9db318ef0296d83, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e373ca7b46d644daa9db318ef0296d83, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e373ca7b46d644daa9db318ef0296d83, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 3.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e373ca7b46d644daa9db318ef0296d83, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e373ca7b46d644daa9db318ef0296d83, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e373ca7b46d644daa9db318ef0296d83, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e373ca7b46d644daa9db318ef0296d83, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e373ca7b46d644daa9db318ef0296d83, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e373ca7b46d644daa9db318ef0296d83, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e373ca7b46d644daa9db318ef0296d83, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: e373ca7b46d644daa9db318ef0296d83, type: 3}
-      propertyPath: m_Name
-      value: snow_tile_riverStaightEnd
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e373ca7b46d644daa9db318ef0296d83, type: 3}
---- !u!4 &1912042766 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e373ca7b46d644daa9db318ef0296d83, type: 3}
-  m_PrefabInstance: {fileID: 1912042765}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1934513456
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17401,6 +17339,68 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2a3457abaa86940039fbf323af60bfab, type: 3}
   m_PrefabInstance: {fileID: 2057942904}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2074350573
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1908956752}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: e373ca7b46d644daa9db318ef0296d83, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e373ca7b46d644daa9db318ef0296d83, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e373ca7b46d644daa9db318ef0296d83, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e373ca7b46d644daa9db318ef0296d83, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.00000004371139
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e373ca7b46d644daa9db318ef0296d83, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e373ca7b46d644daa9db318ef0296d83, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e373ca7b46d644daa9db318ef0296d83, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e373ca7b46d644daa9db318ef0296d83, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e373ca7b46d644daa9db318ef0296d83, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e373ca7b46d644daa9db318ef0296d83, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e373ca7b46d644daa9db318ef0296d83, type: 3}
+      propertyPath: m_Name
+      value: snow_tile_riverStaightEnd
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e373ca7b46d644daa9db318ef0296d83, type: 3}
+--- !u!4 &2074350574 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e373ca7b46d644daa9db318ef0296d83, type: 3}
+  m_PrefabInstance: {fileID: 2074350573}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2076961940
 PrefabInstance:
