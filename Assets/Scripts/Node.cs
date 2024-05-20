@@ -4,6 +4,7 @@ public class Node : MonoBehaviour
 {
 
     public Color hoverColor;
+    public Color notEnoughMoneyColor;
     public Vector3 positionOffset;
     [Header("Optional for future")]
     public GameObject turret;
@@ -48,9 +49,17 @@ public class Node : MonoBehaviour
     {
         rend.material.color = hoverColor;
 
-
-        if (buildManager.CanBuild)
+        if (!buildManager.CanBuild)
             return;
+
+        if (buildManager.HasMoney)
+        {
+            rend.material.color = hoverColor;
+        }
+        else
+        {
+            rend.material.color = notEnoughMoneyColor;
+        }
     }
 
     void OnMouseExit()
