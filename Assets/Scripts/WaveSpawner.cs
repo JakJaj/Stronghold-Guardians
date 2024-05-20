@@ -16,11 +16,9 @@ public class WaveSpawner : MonoBehaviour
 
     void Start()
     {
-        // Get the UIDocument component and root element
         var uiDocument = FindObjectOfType<UIDocument>();
         var root = uiDocument.rootVisualElement;
 
-        // Get the label by name
         waveCountdownLabel = root.Q<Label>("WaveCountdownText");
     }
 
@@ -34,7 +32,6 @@ public class WaveSpawner : MonoBehaviour
 
         countdown -= Time.deltaTime;
 
-        // Update the label text with the countdown value formatted to 2 decimal places
         waveCountdownLabel.text = countdown.ToString("F2");
     }
 

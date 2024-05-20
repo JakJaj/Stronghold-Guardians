@@ -13796,6 +13796,7 @@ MonoBehaviour:
   weaponCannon: {fileID: 5297957672406822841, guid: 088b58781433af747bb11f3ec25de62f, type: 3}
   weaponBallista: {fileID: 1888387504841564160, guid: f24b77aff8e3acf42bc69ba3c392ffea, type: 3}
   weaponCatapult: {fileID: 4994603086713278658, guid: 776c9f04675bd8040bfe8fecf4d17b76, type: 3}
+  buildEffect: {fileID: 0}
 --- !u!114 &968761711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17156,7 +17157,7 @@ GameObject:
   - component: {fileID: 1188777603}
   - component: {fileID: 1188777605}
   m_Layer: 5
-  m_Name: Menu
+  m_Name: UI Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

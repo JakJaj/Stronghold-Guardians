@@ -11,6 +11,9 @@ public class ShopController : MonoBehaviour
     public Button buttonTwo;
     public Button buttonThree;
     public Label dynamicTextLabel;
+    public Label priceOneLabel;
+    public Label priceTwoLabel;
+    public Label priceThreeLabel;
 
     public TurretBlueprint weaponCannon;
     public TurretBlueprint weaponBallista;
@@ -21,6 +24,11 @@ public class ShopController : MonoBehaviour
     void Start()
     {
         buildManager = BuildManager.instance;
+
+        // Set the text of the price labels
+        priceOneLabel.text = weaponCannon.cost.ToString();
+        priceTwoLabel.text = weaponBallista.cost.ToString();
+        priceThreeLabel.text = weaponCatapult.cost.ToString();
     }
 
     private void Awake()
@@ -41,6 +49,16 @@ public class ShopController : MonoBehaviour
         buttonThree.clicked += OnButtonThreeClicked;
 
         dynamicTextLabel = ui.Q<Label>("DynamicText");
+
+        // Get references to the price labels
+        priceOneLabel = ui.Q<Label>("PriceOne");
+        priceTwoLabel = ui.Q<Label>("PriceTwo");
+        priceThreeLabel = ui.Q<Label>("PriceThree");
+
+        // Set the initial text of the price labels
+        priceOneLabel.text = weaponCannon.cost.ToString();
+        priceTwoLabel.text = weaponBallista.cost.ToString();
+        priceThreeLabel.text = weaponCatapult.cost.ToString();
     }
 
     private void OnDisable()
