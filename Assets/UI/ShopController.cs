@@ -10,6 +10,7 @@ public class ShopController : MonoBehaviour
     public Button buttonOne;
     public Button buttonTwo;
     public Button buttonThree;
+    public Label dynamicTextLabel;
 
     public TurretBlueprint weaponCannon;
     public TurretBlueprint weaponBallista;
@@ -38,6 +39,8 @@ public class ShopController : MonoBehaviour
 
         buttonThree = ui.Q<Button>("ButtonThree");
         buttonThree.clicked += OnButtonThreeClicked;
+
+        dynamicTextLabel = ui.Q<Label>("DynamicText");
     }
 
     private void OnDisable()
@@ -63,5 +66,15 @@ public class ShopController : MonoBehaviour
     {
         Debug.Log("Button Three clicked");
         buildManager.SetTurretToBuild(weaponCatapult);
+    }
+
+    public void UpdateDynamicText()
+    {
+        dynamicTextLabel.text = PlayerStats.Money.ToString();
+    }
+
+    void Update()
+    {
+        UpdateDynamicText();
     }
 }
