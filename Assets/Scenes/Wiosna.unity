@@ -12192,7 +12192,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e46bb3cfb6c59e142ab5664250d0f6d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standardTurretPrefab: {fileID: 5297957672406822841, guid: 088b58781433af747bb11f3ec25de62f, type: 3}
+  weaponCannon: {fileID: 5297957672406822841, guid: 088b58781433af747bb11f3ec25de62f, type: 3}
+  weaponBallista: {fileID: 1888387504841564160, guid: f24b77aff8e3acf42bc69ba3c392ffea, type: 3}
+  weaponCatapult: {fileID: 4994603086713278658, guid: 776c9f04675bd8040bfe8fecf4d17b76, type: 3}
 --- !u!1001 &974249864
 PrefabInstance:
   m_ObjectHideFlags: 0
