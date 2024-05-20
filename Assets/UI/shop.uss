@@ -1,0 +1,14 @@
+.panel {
+}
+
+.unity-button {
+    justify-content: flex-start;
+    align-items: stretch;
+    align-self: center;
+    flex-direction: column-reverse;
+}
+
+.unity-button:hover {
+    background-color: rgba(241, 163, 0, 0.64);
+    scale: 1.1 1.1;
+}
