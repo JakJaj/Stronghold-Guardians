@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements; // Upewnij się, że używasz odpowiedniego namespace
+using UnityEngine.UIElements;
 
 public class ShopController : MonoBehaviour
 {
@@ -10,6 +10,12 @@ public class ShopController : MonoBehaviour
     public Button buttonOne;
     public Button buttonTwo;
     public Button buttonThree;
+    BuildManager buildManager;
+
+    void Start()
+    {
+        buildManager = BuildManager.instance;
+    }
 
     private void Awake()
     {
@@ -31,7 +37,6 @@ public class ShopController : MonoBehaviour
 
     private void OnDisable()
     {
-        // Usuń event handlers, aby uniknąć problemów z pamięcią
         buttonOne.clicked -= OnButtonOneClicked;
         buttonTwo.clicked -= OnButtonTwoClicked;
         buttonThree.clicked -= OnButtonThreeClicked;
@@ -40,15 +45,18 @@ public class ShopController : MonoBehaviour
     private void OnButtonOneClicked()
     {
         Debug.Log("Button One clicked");
+        buildManager.SetTurretToBuild(buildManager.weaponCannon);
     }
 
     private void OnButtonTwoClicked()
     {
         Debug.Log("Button Two clicked");
+        buildManager.SetTurretToBuild(buildManager.weaponBallista);
     }
 
     private void OnButtonThreeClicked()
     {
         Debug.Log("Button Three clicked");
+        buildManager.SetTurretToBuild(buildManager.weaponCatapult);
     }
 }
