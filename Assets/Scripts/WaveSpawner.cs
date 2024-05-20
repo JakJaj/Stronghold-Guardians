@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UIElements;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -11,6 +12,18 @@ public class WaveSpawner : MonoBehaviour
     private int waveIndex = 0;
     private List<GameObject> enemies = new List<GameObject>();
 
+    private Label waveCountdownLabel;
+
+    void Start()
+    {
+        // Get the UIDocument component and root element
+        var uiDocument = FindObjectOfType<UIDocument>();
+        var root = uiDocument.rootVisualElement;
+
+        // Get the label by name
+        waveCountdownLabel = root.Q<Label>("WaveCountdownText");
+    }
+
     void Update()
     {
         if (countdown <= 0f)
@@ -20,6 +33,9 @@ public class WaveSpawner : MonoBehaviour
         }
 
         countdown -= Time.deltaTime;
+
+        // Update the label text with the countdown value formatted to 2 decimal places
+        waveCountdownLabel.text = countdown.ToString("F2");
     }
 
     IEnumerator SpawnWave()
