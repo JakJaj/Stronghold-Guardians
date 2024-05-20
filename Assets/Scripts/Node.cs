@@ -5,7 +5,7 @@ public class Node : MonoBehaviour
 
     public Color hoverColor;
     public Vector3 positionOffset;
-
+    [Header("Optional for future")]
     public GameObject turret;
 
     private Renderer rend;
@@ -27,6 +27,8 @@ public class Node : MonoBehaviour
 
     void OnMouseDown()
     {
+        rend.material.color = hoverColor;
+
         if (!buildManager.CanBuild)
         {
             Debug.Log("You need to choose the turret first! - TODO: Display on screen.");
@@ -44,10 +46,11 @@ public class Node : MonoBehaviour
 
     void OnMouseEnter()
     {
+        rend.material.color = hoverColor;
+
+
         if (buildManager.CanBuild)
             return;
-
-        rend.material.color = hoverColor;
     }
 
     void OnMouseExit()
