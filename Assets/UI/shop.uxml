@@ -1,8 +1,8 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/shop.uss?fileID=7433441132597879392&amp;guid=e11005bcf68b2344192ff5977b4e2e97&amp;type=3#shop" />
     <ui:VisualElement name="Panel" class="panel" style="flex-grow: 1; background-color: rgba(212, 212, 212, 0.18); top: 80%; height: 20%; flex-direction: column; flex-wrap: nowrap; justify-content: flex-end; align-items: stretch; align-self: auto; opacity: 1; position: absolute; width: 100%; left: auto;">
-        <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" style="position: absolute; top: 20%; left: 45%;" />
-        <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" style="position: absolute; top: 20%; left: 60%;" />
-        <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" style="position: absolute; top: 20%; left: 30%;" />
+        <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ButtonTwo" style="position: absolute; top: 20%; left: 45%;" />
+        <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ButtonThree" style="position: absolute; top: 20%; left: 60%;" />
+        <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ButtonOne" style="position: absolute; top: 20%; left: 30%;" />
     </ui:VisualElement>
 </ui:UXML>
