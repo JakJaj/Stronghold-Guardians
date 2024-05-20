@@ -10,6 +10,11 @@ public class ShopController : MonoBehaviour
     public Button buttonOne;
     public Button buttonTwo;
     public Button buttonThree;
+
+    public TurretBlueprint weaponCannon;
+    public TurretBlueprint weaponBallista;
+    public TurretBlueprint weaponCatapult;
+
     BuildManager buildManager;
 
     void Start()
