@@ -50,18 +50,18 @@ public class ShopController : MonoBehaviour
     private void OnButtonOneClicked()
     {
         Debug.Log("Button One clicked");
-        buildManager.SetTurretToBuild(buildManager.weaponCannon);
+        buildManager.SetTurretToBuild(weaponCannon);
     }
 
     private void OnButtonTwoClicked()
     {
         Debug.Log("Button Two clicked");
-        buildManager.SetTurretToBuild(buildManager.weaponBallista);
+        buildManager.SetTurretToBuild(weaponBallista);
     }
 
     private void OnButtonThreeClicked()
     {
         Debug.Log("Button Three clicked");
-        buildManager.SetTurretToBuild(buildManager.weaponCatapult);
+        buildManager.SetTurretToBuild(weaponCatapult);
     }
 }

@@ -19,14 +19,17 @@ public class BuildManager : MonoBehaviour
     public GameObject weaponBallista;
     public GameObject weaponCatapult;
 
-    private GameObject turretToBuild;
+    private TurretBlueprint turretToBuild;
 
-    public GameObject GetTurretToBuild()
+    public bool CanBuild { get { return turretToBuild != null; } }
+
+    public void BuildTurretOn(Node node)
     {
-        return turretToBuild;
+        GameObject tuerret = (GameObject)Instantiate(turretToBuild.prefab, node.GetBuildPosition(), Quaternion.identity);
+        node.turret = tuerret;
     }
 
-    public void SetTurretToBuild(GameObject turret)
+    public void SetTurretToBuild(TurretBlueprint turret)
     {
         turretToBuild = turret;
     }
