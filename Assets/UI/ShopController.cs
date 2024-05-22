@@ -10,7 +10,7 @@ public class ShopController : MonoBehaviour
     public Button buttonOne;
     public Button buttonTwo;
     public Button buttonThree;
-    public Label dynamicTextLabel;
+    public Label currentMoneyLabel;
     public Label priceOneLabel;
     public Label priceTwoLabel;
     public Label priceThreeLabel;
@@ -48,7 +48,7 @@ public class ShopController : MonoBehaviour
         buttonThree = ui.Q<Button>("ButtonThree");
         buttonThree.clicked += OnButtonThreeClicked;
 
-        dynamicTextLabel = ui.Q<Label>("DynamicText");
+        currentMoneyLabel = ui.Q<Label>("CurrentMoney");
 
         // Get references to the price labels
         priceOneLabel = ui.Q<Label>("PriceOne");
@@ -86,13 +86,13 @@ public class ShopController : MonoBehaviour
         buildManager.SetTurretToBuild(weaponCatapult);
     }
 
-    public void UpdateDynamicText()
+    public void UpdateCurrentMoney()
     {
-        dynamicTextLabel.text = PlayerStats.Money.ToString();
+        currentMoneyLabel.text = PlayerStats.Money.ToString();
     }
 
     void Update()
     {
-        UpdateDynamicText();
+        UpdateCurrentMoney();
     }
 }
