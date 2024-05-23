@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -20,6 +18,7 @@ public class ShopController : MonoBehaviour
     public TurretBlueprint weaponCatapult;
 
     BuildManager buildManager;
+    private TurretBlueprint selectedTurret;
 
     void Start()
     {
@@ -71,19 +70,22 @@ public class ShopController : MonoBehaviour
     private void OnButtonOneClicked()
     {
         Debug.Log("Button One clicked");
-        buildManager.SetTurretToBuild(weaponCannon);
+        selectedTurret = weaponCannon;
+        buildManager.SetTurretToBuild(selectedTurret);
     }
 
     private void OnButtonTwoClicked()
     {
         Debug.Log("Button Two clicked");
-        buildManager.SetTurretToBuild(weaponBallista);
+        selectedTurret = weaponBallista;
+        buildManager.SetTurretToBuild(selectedTurret);
     }
 
     private void OnButtonThreeClicked()
     {
         Debug.Log("Button Three clicked");
-        buildManager.SetTurretToBuild(weaponCatapult);
+        selectedTurret = weaponCatapult;
+        buildManager.SetTurretToBuild(selectedTurret);
     }
 
     public void UpdateCurrentMoney()
@@ -94,5 +96,12 @@ public class ShopController : MonoBehaviour
     void Update()
     {
         UpdateCurrentMoney();
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            Debug.Log("Selection canceled");
+            selectedTurret = null;
+            buildManager.SetTurretToBuild(null);
+        }
     }
 }
