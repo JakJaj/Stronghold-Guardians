@@ -12768,7 +12768,7 @@ Transform:
   m_GameObject: {fileID: 902061204}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0000070558985, y: 0.81915206, z: -0.57357645, w: -0.0000049405935}
-  m_LocalPosition: {x: 0, y: 16, z: 7}
+  m_LocalPosition: {x: 0, y: 19, z: 8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12789,8 +12789,12 @@ MonoBehaviour:
   panSpeed: 10
   panBorderThickness: 30
   scrollSpeed: 3
-  minY: 5
+  minY: 10
   maxY: 20
+  minX: -10
+  maxX: 10
+  minZ: -5
+  maxZ: 10
 --- !u!4 &902576880 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8774052033278909043, guid: 02828ea016de14b3aaee28eacd7fff12, type: 3}
