@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
     private VisualElement gameOverUI;
     private Label roundsTextLabel;
+    private ShopController shopController;
 
     void Start()
     {
@@ -19,6 +20,8 @@ public class GameManager : MonoBehaviour
         roundsTextLabel = root.Q<Label>("RoundsSurvived");
 
         gameOverUI.style.display = DisplayStyle.None;
+
+        shopController = FindObjectOfType<ShopController>();
     }
 
     void Update()
@@ -37,6 +40,7 @@ public class GameManager : MonoBehaviour
         GameIsOver = true;
         roundsTextLabel.text = PlayerStats.Rounds.ToString();
         gameOverUI.style.display = DisplayStyle.Flex;
+        shopController.HideShopUI();
         Time.timeScale = 0f;
     }
 }

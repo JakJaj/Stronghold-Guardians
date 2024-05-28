@@ -93,6 +93,16 @@ public class ShopController : MonoBehaviour
         currentMoneyLabel.text = PlayerStats.Money.ToString();
     }
 
+    public void HideShopUI()
+    {
+        ui.style.display = DisplayStyle.None;
+    }
+
+    public void ShowShopUI()
+    {
+        ui.style.display = DisplayStyle.Flex;
+    }
+
     void Update()
     {
         UpdateCurrentMoney();
