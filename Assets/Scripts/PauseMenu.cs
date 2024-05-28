@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
     private Button PauseContinueButton;
     private Button PauseOnRetryButtonClickedButton;
     private Button PauseMenuButton;
+    private string levelToLoad = "MainMenu";
 
     BuildManager buildManager;
 
@@ -55,7 +56,7 @@ public class PauseMenu : MonoBehaviour
 
     public void OnMenuButtonClicked()
     {
-        Debug.Log("Go to OnMenuButtonClicked.");
+        SceneManager.LoadScene(levelToLoad);
     }
 
     public void HidePauseUI()

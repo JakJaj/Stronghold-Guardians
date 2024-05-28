@@ -4,7 +4,7 @@ using UnityEngine.UIElements;
 
 public class MainMenu : MonoBehaviour
 {
-    public string levelToLoad = "Wiosna";
+    private string levelToLoad = "Wiosna";
 
     private void OnEnable()
     {
@@ -20,6 +20,7 @@ public class MainMenu : MonoBehaviour
     public void Play()
     {
         SceneManager.LoadScene(levelToLoad);
+        Time.timeScale = 1;
     }
 
     public void Quit()

@@ -8,6 +8,7 @@ public class GameOver : MonoBehaviour
     public Button GORetryButton;
     public Button GOMenuButton;
     BuildManager buildManager;
+    private string levelToLoad = "MainMenu";
 
     void Start()
     {
@@ -26,19 +27,20 @@ public class GameOver : MonoBehaviour
         GORetryButton = ui.Q<Button>("GORetryButton");
         GORetryButton.clicked += OnGORetryButtonClicked;
 
-        GOMenuButton = ui.Q<Button>("GORetryButton");
+        GOMenuButton = ui.Q<Button>("GOMenuButton");
         GOMenuButton.clicked += OnGOMenuButtonClicked;
     }
 
     void OnGORetryButtonClicked()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Time.timeScale = 1f;
+        Time.timeScale = 1;
     }
 
     void OnGOMenuButtonClicked()
     {
         Debug.Log("Go to menu.");
+        SceneManager.LoadScene(levelToLoad);
     }
 
     public void HideGOUI()
