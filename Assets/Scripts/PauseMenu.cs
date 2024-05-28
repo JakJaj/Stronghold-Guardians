@@ -13,8 +13,8 @@ public class PauseMenu : MonoBehaviour
 
     void Start()
     {
-        buildManager = BuildManager.instance;
         HidePauseUI();
+        buildManager = BuildManager.instance;
     }
 
     private void Awake()
