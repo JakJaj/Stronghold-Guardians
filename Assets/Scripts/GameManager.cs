@@ -12,9 +12,9 @@ public class GameManager : MonoBehaviour
     {
         shopController = FindObjectOfType<ShopController>();
         gameOver = FindObjectOfType<GameOver>();
-        pauseMenu = FindObjectOfType<PauseMenu>(); // Dodaj tę linię
+        pauseMenu = FindObjectOfType<PauseMenu>();
         gameOver.HideGOUI();
-        pauseMenu.HidePauseUI(); // Zmienione na pauseMenu.HidePauseUI()
+        pauseMenu.HidePauseUI();
     }
 
     void Update()
@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Time.timeScale = 0f;
+            Time.timeScale = 1f;
             pauseMenu.HidePauseUI();
         }
     }
