@@ -37,5 +37,6 @@ public class GameManager : MonoBehaviour
         GameIsOver = true;
         roundsTextLabel.text = PlayerStats.Rounds.ToString();
         gameOverUI.style.display = DisplayStyle.Flex;
+        Time.timeScale = 0f;
     }
 }

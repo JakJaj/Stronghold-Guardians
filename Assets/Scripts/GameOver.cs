@@ -22,11 +22,12 @@ public class GameOver : MonoBehaviour
     void Retry()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1f;
     }
+
 
     void Menu()
     {
         Debug.Log("Go to menu.");
-        // Tu możesz dodać kod do przejścia do menu
     }
 }
