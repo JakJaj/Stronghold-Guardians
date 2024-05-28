@@ -13,7 +13,7 @@ public class LivesUI : MonoBehaviour
         var root = uiDocument.rootVisualElement;
 
         // Znajdź element Label o nazwie HeartAmount
-        livesLabel = root.Q<Label>("HeartAmount");
+        livesLabel = root.Q<Label>("ShopHeartAmount");
     }
 
     // Update is called once per frame

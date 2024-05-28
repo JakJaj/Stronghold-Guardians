@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour
         var uiDocument = FindObjectOfType<UIDocument>();
         var root = uiDocument.rootVisualElement;
 
-        gameOverUI = root.Q<VisualElement>("MenuPanel");
-        roundsTextLabel = root.Q<Label>("RoundsSurvived");
+        gameOverUI = root.Q<VisualElement>("GOPanel");
+        roundsTextLabel = root.Q<Label>("GORoundsSurvived");
 
         gameOverUI.style.display = DisplayStyle.None;
 

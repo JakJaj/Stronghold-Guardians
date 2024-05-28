@@ -14,7 +14,7 @@ public class PauseMenu : MonoBehaviour
         var uiDocument = FindObjectOfType<UIDocument>();
         var root = uiDocument.rootVisualElement;
 
-        ui = root.Q<VisualElement>("MenuPanel");
+        ui = root.Q<VisualElement>("PauseMenuPanel");
 
         continueButton = ui.Q<Button>("ContinueButton");
         retryButton = ui.Q<Button>("RetryButton");

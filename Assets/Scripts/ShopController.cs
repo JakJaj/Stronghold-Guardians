@@ -38,21 +38,21 @@ public class ShopController : MonoBehaviour
 
     private void OnEnable()
     {
-        buttonOne = ui.Q<Button>("ButtonOne");
+        buttonOne = ui.Q<Button>("ShopButtonOne");
         buttonOne.clicked += OnButtonOneClicked;
 
-        buttonTwo = ui.Q<Button>("ButtonTwo");
+        buttonTwo = ui.Q<Button>("ShopButtonTwo");
         buttonTwo.clicked += OnButtonTwoClicked;
 
-        buttonThree = ui.Q<Button>("ButtonThree");
+        buttonThree = ui.Q<Button>("ShopButtonThree");
         buttonThree.clicked += OnButtonThreeClicked;
 
-        currentMoneyLabel = ui.Q<Label>("CurrentMoney");
+        currentMoneyLabel = ui.Q<Label>("ShopCurrentMoney");
 
         // Get references to the price labels
-        priceOneLabel = ui.Q<Label>("PriceOne");
-        priceTwoLabel = ui.Q<Label>("PriceTwo");
-        priceThreeLabel = ui.Q<Label>("PriceThree");
+        priceOneLabel = ui.Q<Label>("ShopPriceOne");
+        priceTwoLabel = ui.Q<Label>("ShopPriceTwo");
+        priceThreeLabel = ui.Q<Label>("ShopPriceThree");
 
         // Set the initial text of the price labels
         priceOneLabel.text = weaponCannon.cost.ToString();

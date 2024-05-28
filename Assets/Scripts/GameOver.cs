@@ -12,8 +12,8 @@ public class GameOver : MonoBehaviour
         var uiDocument = FindObjectOfType<UIDocument>();
         var root = uiDocument.rootVisualElement;
 
-        retryButton = root.Q<Button>("RetryButton");
-        menuButton = root.Q<Button>("MenuButton");
+        retryButton = root.Q<Button>("GORetryButton");
+        menuButton = root.Q<Button>("GOMenuButton");
 
         retryButton.clicked += Retry;
         menuButton.clicked += Menu;
