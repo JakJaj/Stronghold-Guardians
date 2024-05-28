@@ -1,19 +1,26 @@
 using UnityEngine;
-using System.Collections;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
-
     public static bool GameIsOver;
 
-    public GameObject gameOverUI;
+    private VisualElement gameOverUI;
+    private Label roundsTextLabel;
 
     void Start()
     {
         GameIsOver = false;
+
+        var uiDocument = FindObjectOfType<UIDocument>();
+        var root = uiDocument.rootVisualElement;
+
+        gameOverUI = root.Q<VisualElement>("MenuPanel");
+        roundsTextLabel = root.Q<Label>("RoundsSurvived");
+
+        gameOverUI.style.display = DisplayStyle.None;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (GameIsOver)
@@ -28,7 +35,7 @@ public class GameManager : MonoBehaviour
     void EndGame()
     {
         GameIsOver = true;
-        gameOverUI.SetActive(true);
+        roundsTextLabel.text = PlayerStats.Rounds.ToString();
+        gameOverUI.style.display = DisplayStyle.Flex;
     }
-
 }

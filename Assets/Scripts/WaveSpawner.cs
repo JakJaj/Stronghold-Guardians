@@ -1,7 +1,7 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UIElements;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -32,7 +32,14 @@ public class WaveSpawner : MonoBehaviour
 
         countdown -= Time.deltaTime;
 
-        waveCountdownLabel.text = countdown.ToString("F2");
+        if (waveCountdownLabel != null)
+        {
+            waveCountdownLabel.text = countdown.ToString("F2");
+        }
+        else
+        {
+            Debug.LogError("WaveCountdownText label not found");
+        }
     }
 
     IEnumerator SpawnWave()
