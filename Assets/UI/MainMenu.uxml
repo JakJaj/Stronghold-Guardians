@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="MainMenuPanel" class="panel" style="flex-grow: 1; background-color: rgb(255, 246, 239);">
+        <ui:VisualElement name="CentreMainMenuPanel" class="panel" style="flex-grow: 1; left: 25%; top: auto; right: auto; bottom: auto; width: 50%; height: auto; justify-content: space-around; align-self: auto; align-items: center;">
+            <ui:Button text="PLAY" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MainMenuPlayButton" style="top: 15%; scale: 1.5 1.5;" />
+            <ui:Button text="QUIT" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MainMenuQuitButton" style="bottom: 15%; scale: 1.5 1.5;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
