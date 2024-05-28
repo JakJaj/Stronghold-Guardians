@@ -1,11 +1,9 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
     private ShopController shopController;
     private GameOver gameOver;
-
     private PauseMenu pauseMenu;
 
     void Start()
@@ -46,8 +44,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Time.timeScale = 1f;
-            pauseMenu.HidePauseUI();
+            pauseMenu.ResumeGame();
         }
     }
 }

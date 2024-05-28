@@ -25,31 +25,37 @@ public class PauseMenu : MonoBehaviour
 
     private void OnEnable()
     {
-        PauseContinueButton = ui.Q<Button>("PausePauseContinueButton");
+        PauseContinueButton = ui.Q<Button>("PauseContinueButton");
         PauseContinueButton.clicked += OnContinueButtonClicked;
 
-        PauseOnRetryButtonClickedButton = ui.Q<Button>("PauseOnRetryButtonClickedButton");
+        PauseOnRetryButtonClickedButton = ui.Q<Button>("PauseRetryButton");
         PauseOnRetryButtonClickedButton.clicked += OnRetryButtonClicked;
 
-        PauseMenuButton = ui.Q<Button>("PausePauseMenuButton");
-        PauseMenuButton.clicked += OnMenuButtonCLicked;
+        PauseMenuButton = ui.Q<Button>("PauseMenuButton");
+        PauseMenuButton.clicked += OnMenuButtonClicked;
     }
 
-    void OnContinueButtonClicked()
+    private void OnDisable()
     {
-        Time.timeScale = 1;
-        ui.style.display = DisplayStyle.None;
+        PauseContinueButton.clicked -= OnContinueButtonClicked;
+        PauseOnRetryButtonClickedButton.clicked -= OnRetryButtonClicked;
+        PauseMenuButton.clicked -= OnMenuButtonClicked;
     }
 
-    void OnRetryButtonClicked()
+    public void OnContinueButtonClicked()
+    {
+        ResumeGame();
+    }
+
+    public void OnRetryButtonClicked()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    void OnMenuButtonCLicked()
+    public void OnMenuButtonClicked()
     {
-        Debug.Log("Go to OnMenuButtonCLicked.");
+        Debug.Log("Go to OnMenuButtonClicked.");
     }
 
     public void HidePauseUI()
@@ -60,5 +66,11 @@ public class PauseMenu : MonoBehaviour
     public void ShowPauseUI()
     {
         ui.style.display = DisplayStyle.Flex;
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        HidePauseUI();
     }
 }
