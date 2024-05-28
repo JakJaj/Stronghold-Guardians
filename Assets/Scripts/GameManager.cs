@@ -3,32 +3,18 @@ using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
-    public static bool GameIsOver;
-
-    private VisualElement gameOverUI;
-    private Label roundsTextLabel;
     private ShopController shopController;
+    private GameOver gameOver;
 
     void Start()
     {
-        GameIsOver = false;
-
-        var uiDocument = FindObjectOfType<UIDocument>();
-        var root = uiDocument.rootVisualElement;
-
-        gameOverUI = root.Q<VisualElement>("GOPanel");
-        roundsTextLabel = root.Q<Label>("GORoundsSurvived");
-
-        gameOverUI.style.display = DisplayStyle.None;
-
         shopController = FindObjectOfType<ShopController>();
+        gameOver = FindObjectOfType<GameOver>();
+        gameOver.HideGOUI();
     }
 
     void Update()
     {
-        if (GameIsOver)
-            return;
-
         if (PlayerStats.Lives <= 0)
         {
             EndGame();
@@ -37,9 +23,7 @@ public class GameManager : MonoBehaviour
 
     void EndGame()
     {
-        GameIsOver = true;
-        roundsTextLabel.text = PlayerStats.Rounds.ToString();
-        gameOverUI.style.display = DisplayStyle.Flex;
+        gameOver.ShowGOUI();
         shopController.HideShopUI();
         Time.timeScale = 0f;
     }

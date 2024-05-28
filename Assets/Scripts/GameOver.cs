@@ -4,30 +4,50 @@ using UnityEngine.UIElements;
 
 public class GameOver : MonoBehaviour
 {
-    private Button retryButton;
-    private Button menuButton;
+    public VisualElement ui;
+    public Button GORetryButton;
+    public Button GOMenuButton;
+    BuildManager buildManager;
 
     void Start()
     {
-        var uiDocument = FindObjectOfType<UIDocument>();
-        var root = uiDocument.rootVisualElement;
-
-        retryButton = root.Q<Button>("GORetryButton");
-        menuButton = root.Q<Button>("GOMenuButton");
-
-        retryButton.clicked += Retry;
-        menuButton.clicked += Menu;
+        buildManager = BuildManager.instance;
+        HideGOUI();
     }
 
-    void Retry()
+    private void Awake()
+    {
+        var root = GetComponent<UIDocument>().rootVisualElement;
+        ui = root.Q<VisualElement>();
+    }
+
+    private void OnEnable()
+    {
+        GORetryButton = ui.Q<Button>("GORetryButton");
+        GORetryButton.clicked += OnGORetryButtonClicked;
+
+        GOMenuButton = ui.Q<Button>("GORetryButton");
+        GOMenuButton.clicked += OnGOMenuButtonClicked;
+    }
+
+    void OnGORetryButtonClicked()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1f;
     }
 
-
-    void Menu()
+    void OnGOMenuButtonClicked()
     {
         Debug.Log("Go to menu.");
+    }
+
+    public void HideGOUI()
+    {
+        ui.style.display = DisplayStyle.None;
+    }
+
+    public void ShowGOUI()
+    {
+        ui.style.display = DisplayStyle.Flex;
     }
 }
