@@ -6,11 +6,14 @@ public class GameManager : MonoBehaviour
     private ShopController shopController;
     private GameOver gameOver;
 
+    private PauseMenu pauseMenu;
+
     void Start()
     {
         shopController = FindObjectOfType<ShopController>();
         gameOver = FindObjectOfType<GameOver>();
         gameOver.HideGOUI();
+        pauseMenu.HidePauseUI();
     }
 
     void Update()

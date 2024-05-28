@@ -5,47 +5,60 @@ using UnityEngine.UIElements;
 public class PauseMenu : MonoBehaviour
 {
     private VisualElement ui;
-    private Button continueButton;
-    private Button retryButton;
-    private Button menuButton;
+    private Button PauseContinueButton;
+    private Button PauseOnRetryButtonClickedButton;
+    private Button PauseMenuButton;
+
+    BuildManager buildManager;
 
     void Start()
     {
-        var uiDocument = FindObjectOfType<UIDocument>();
-        var root = uiDocument.rootVisualElement;
-
-        ui = root.Q<VisualElement>("PauseMenuPanel");
-
-        continueButton = ui.Q<Button>("ContinueButton");
-        retryButton = ui.Q<Button>("RetryButton");
-        menuButton = ui.Q<Button>("MenuButton");
-
-        continueButton.clicked += ContinueGame;
-        retryButton.clicked += Retry;
-        menuButton.clicked += Menu;
+        buildManager = BuildManager.instance;
+        HidePauseUI();
     }
 
-    void ContinueGame()
+    private void Awake()
     {
-        Time.timeScale = 1; // Kontynuowanie gry
+        var root = GetComponent<UIDocument>().rootVisualElement;
+        ui = root.Q<VisualElement>();
+    }
+
+    private void OnEnable()
+    {
+        PauseContinueButton = ui.Q<Button>("PausePauseContinueButton");
+        PauseContinueButton.clicked += OnContinueButtonClicked;
+
+        PauseOnRetryButtonClickedButton = ui.Q<Button>("PauseOnRetryButtonClickedButton");
+        PauseOnRetryButtonClickedButton.clicked += OnRetryButtonClicked;
+
+        PauseMenuButton = ui.Q<Button>("PausePauseMenuButton");
+        PauseMenuButton.clicked += OnMenuButtonCLicked;
+    }
+
+    void OnContinueButtonClicked()
+    {
+        Time.timeScale = 1;
         ui.style.display = DisplayStyle.None;
     }
 
-    void Retry()
+    void OnRetryButtonClicked()
     {
-        Time.timeScale = 1; // Ustawienie czasu na normalny
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    void Menu()
+    void OnMenuButtonCLicked()
     {
-        Time.timeScale = 1; // Ustawienie czasu na normalny
-        SceneManager.LoadScene("MainMenu");
+        Debug.Log("Go to OnMenuButtonCLicked.");
     }
 
-    public void Pause()
+    public void HidePauseUI()
     {
-        Time.timeScale = 0; // Zatrzymanie gry
+        ui.style.display = DisplayStyle.None;
+    }
+
+    public void ShowPauseUI()
+    {
         ui.style.display = DisplayStyle.Flex;
     }
 }
