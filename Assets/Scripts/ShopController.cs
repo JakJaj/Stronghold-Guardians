@@ -4,6 +4,7 @@ using UnityEngine.UIElements;
 public class ShopController : MonoBehaviour
 {
     public VisualElement ui;
+    private WaveSpawner waveSpawner;
 
     public Button buttonOne;
     public Button buttonTwo;
@@ -12,6 +13,7 @@ public class ShopController : MonoBehaviour
     public Label priceOneLabel;
     public Label priceTwoLabel;
     public Label priceThreeLabel;
+    public Label waveCountdownLabel;
 
     public TurretBlueprint weaponCannon;
     public TurretBlueprint weaponBallista;
@@ -23,8 +25,8 @@ public class ShopController : MonoBehaviour
     void Start()
     {
         buildManager = BuildManager.instance;
+        waveSpawner = FindObjectOfType<WaveSpawner>();
 
-        // Set the text of the price labels
         priceOneLabel.text = weaponCannon.cost.ToString();
         priceTwoLabel.text = weaponBallista.cost.ToString();
         priceThreeLabel.text = weaponCatapult.cost.ToString();
@@ -49,12 +51,12 @@ public class ShopController : MonoBehaviour
 
         currentMoneyLabel = ui.Q<Label>("ShopCurrentMoney");
 
-        // Get references to the price labels
         priceOneLabel = ui.Q<Label>("ShopPriceOne");
         priceTwoLabel = ui.Q<Label>("ShopPriceTwo");
         priceThreeLabel = ui.Q<Label>("ShopPriceThree");
 
-        // Set the initial text of the price labels
+        waveCountdownLabel = ui.Q<Label>("ShopWaveCountdownText");
+
         priceOneLabel.text = weaponCannon.cost.ToString();
         priceTwoLabel.text = weaponBallista.cost.ToString();
         priceThreeLabel.text = weaponCatapult.cost.ToString();
@@ -106,6 +108,11 @@ public class ShopController : MonoBehaviour
     void Update()
     {
         UpdateCurrentMoney();
+
+        if (waveCountdownLabel != null && waveSpawner != null)
+        {
+            waveCountdownLabel.text = waveSpawner.GetCountdown().ToString("F2");
+        }
 
         if (Input.GetMouseButtonDown(1))
         {

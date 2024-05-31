@@ -1,7 +1,5 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 using System.Collections;
-using System.Collections.Generic;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -10,16 +8,10 @@ public class WaveSpawner : MonoBehaviour
     public float timeBetweenWaves = 5f;
     private float countdown = 2f;
     private int waveIndex = 0;
-    private List<GameObject> enemies = new List<GameObject>();
 
-    private Label waveCountdownLabel;
-
-    void Start()
+    public float GetCountdown()
     {
-        var uiDocument = FindObjectOfType<UIDocument>();
-        var root = uiDocument.rootVisualElement;
-
-        waveCountdownLabel = root.Q<Label>("WaveCountdownText");
+        return countdown;
     }
 
     void Update()
@@ -31,15 +23,6 @@ public class WaveSpawner : MonoBehaviour
         }
 
         countdown -= Time.deltaTime;
-
-        if (waveCountdownLabel != null)
-        {
-            waveCountdownLabel.text = countdown.ToString("F2");
-        }
-        else
-        {
-            Debug.LogError("WaveCountdownText label not found");
-        }
     }
 
     IEnumerator SpawnWave()
