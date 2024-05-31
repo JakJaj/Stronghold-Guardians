@@ -15,14 +15,11 @@ public class Turret : MonoBehaviour
     [Header("Unity Setup Fields")]
 
     public string enemyTag = "Enemy";
-
     public Transform partToRotate;
     public float turnSpeed = 10f;
-
     public GameObject bulletPrefab;
     public Transform firePoint;
 
-    // Use this for initialization
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
@@ -54,7 +51,6 @@ public class Turret : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (target == null)

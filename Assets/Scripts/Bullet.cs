@@ -4,11 +4,8 @@ public class Bullet : MonoBehaviour
 {
 
     private Transform target;
-
     public float speed = 70f;
-
     public int damage = 50;
-
     public float explosionRadius = 0f;
     public GameObject impactEffect;
 
@@ -17,10 +14,8 @@ public class Bullet : MonoBehaviour
         target = _target;
     }
 
-    // Update is called once per frame
     void Update()
     {
-
         if (target == null)
         {
             Destroy(gameObject);

@@ -5,7 +5,6 @@ public class ShopController : MonoBehaviour
 {
     public VisualElement ui;
     private WaveSpawner waveSpawner;
-
     public Button buttonOne;
     public Button buttonTwo;
     public Button buttonThree;
@@ -14,11 +13,9 @@ public class ShopController : MonoBehaviour
     public Label priceTwoLabel;
     public Label priceThreeLabel;
     public Label waveCountdownLabel;
-
     public TurretBlueprint weaponCannon;
     public TurretBlueprint weaponBallista;
     public TurretBlueprint weaponCatapult;
-
     BuildManager buildManager;
     private TurretBlueprint selectedTurret;
 

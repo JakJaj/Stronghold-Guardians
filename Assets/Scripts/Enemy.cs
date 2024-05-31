@@ -2,17 +2,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
     public float speed = 10f;
-
     private Transform target;
-
     private int wavepointIndex = 0;
-
     public int health = 100;
-
     public int value = 50;
-
     public GameObject deathEffect;
 
     void Start()
@@ -69,5 +63,4 @@ public class Enemy : MonoBehaviour
         PlayerStats.Lives--;
         Destroy(gameObject);
     }
-
 }

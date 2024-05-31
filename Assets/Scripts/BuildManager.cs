@@ -17,7 +17,6 @@ public class BuildManager : MonoBehaviour
     public GameObject weaponCannon;
     public GameObject weaponBallista;
     public GameObject weaponCatapult;
-
     private TurretBlueprint turretToBuild;
 
     public bool CanBuild { get { return turretToBuild != null; } }

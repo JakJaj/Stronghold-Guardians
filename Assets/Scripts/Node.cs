@@ -2,13 +2,11 @@ using UnityEngine;
 
 public class Node : MonoBehaviour
 {
-
     public Color hoverColor;
     public Color notEnoughMoneyColor;
     public Vector3 positionOffset;
     [Header("Optional for future")]
     public GameObject turret;
-
     private Renderer rend;
     private Color startColor;
 

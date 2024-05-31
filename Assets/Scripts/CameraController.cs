@@ -5,7 +5,6 @@ public class CameraController : MonoBehaviour
 
     public float panSpeed = 30f;
     public float panBorderThickness = 10f;
-
     public float scrollSpeed = 5f;
     public float minY = 10f;
     public float maxY = 80f;
@@ -14,10 +13,8 @@ public class CameraController : MonoBehaviour
     public float minZ = -50f;
     public float maxZ = 50f;
 
-    // Update is called once per frame
     void Update()
     {
-
         Vector3 pos = transform.position;
 
         if (Input.GetKey("s") || Input.mousePosition.y <= panBorderThickness)
