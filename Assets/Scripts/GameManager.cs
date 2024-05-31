@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        //Set the fps Limit
+        Application.targetFrameRate = 60;
+
         shopController = FindObjectOfType<ShopController>();
         gameOver = FindObjectOfType<GameOver>();
         pauseMenu = FindObjectOfType<PauseMenu>();
