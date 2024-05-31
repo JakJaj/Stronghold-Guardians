@@ -1,0 +1,17 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="MainMenuPanel" class="panel" style="flex-grow: 1; background-color: rgb(255, 246, 239);">
+        <ui:VisualElement name="TopMainMenuPanel" class="panel" style="flex-grow: 1; left: 25%; top: auto; right: auto; bottom: auto; width: 50%; height: 20%; justify-content: space-around; align-self: auto; align-items: center;" />
+        <ui:VisualElement name="TopCentreMainMenuPanel" class="panel" style="flex-grow: 1; left: 25%; top: auto; right: auto; bottom: auto; width: 50%; height: 20%; justify-content: space-around; align-self: auto; align-items: center; flex-direction: row; flex-wrap: nowrap;">
+            <ui:Button text="SUMMER" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MainMenuSummerButton" style="top: auto; scale: 1.5 1.5; flex-direction: row; width: 20%; height: 50%;" />
+            <ui:Button text="AUTUMN" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MainMenuAutumnButton" style="bottom: auto; scale: 1.5 1.5; width: 20%; height: 50%;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="CentreMainMenuPanel" class="panel" style="flex-grow: 1; left: 25%; top: auto; right: auto; bottom: auto; width: 50%; height: 20%; justify-content: space-around; align-self: auto; align-items: center; flex-direction: row; flex-wrap: nowrap;">
+            <ui:Button text="WINTER" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MainMenuWinterButton" style="top: auto; scale: 1.5 1.5; flex-direction: row; width: 20%; height: 50%;" />
+            <ui:Button text="SPRING" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MainMenuSpringButton" style="bottom: auto; scale: 1.5 1.5; width: 20%; height: 50%;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="BottomCentreMainMenuPanel" class="panel" style="flex-grow: 1; left: 25%; top: auto; right: auto; bottom: auto; width: 50%; height: 20%; justify-content: space-around; align-self: auto; align-items: center;">
+            <ui:Button text="QUIT" parse-escape-sequences="true" display-tooltip-when-elided="true" name="MainMenuQuitButton" style="scale: 1.5 1.5; width: 53%; height: 50%;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="BottomMainMenuPanel" class="panel" style="flex-grow: 1; left: 25%; top: auto; right: auto; bottom: auto; width: 50%; height: 20%; justify-content: space-around; align-self: auto; align-items: center;" />
+    </ui:VisualElement>
+</ui:UXML>

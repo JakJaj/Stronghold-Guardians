@@ -4,5 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: b5de9ca9d701078439cd21a555ef86fd
+  - enabled: 1
+    path: Assets/Scenes/Wiosna.unity
+    guid: ace57e4376b4b454183f8c0250ee3d06
+  - enabled: 1
+    path: Assets/Scenes/Lato.unity
+    guid: cc8352ae2a968584781ac0e220f9dda4
+  - enabled: 1
+    path: Assets/Scenes/Jesien.unity
+    guid: 014e8a06007dd2f44a4b493ec4649fb7
+  - enabled: 1
+    path: Assets/Scenes/Zima.unity
+    guid: a923f6530d49c994d9eeba4a8503d984
   m_configObjects: {}
