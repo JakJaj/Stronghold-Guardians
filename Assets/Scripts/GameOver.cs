@@ -7,12 +7,15 @@ public class GameOver : MonoBehaviour
     public VisualElement ui;
     public Button GORetryButton;
     public Button GOMenuButton;
+    public Label roundsSurvivedLabel;
     BuildManager buildManager;
     private string levelToLoad = "MainMenu";
+    private WaveSpawner waveSpawner;
 
     void Start()
     {
         buildManager = BuildManager.instance;
+        waveSpawner = FindObjectOfType<WaveSpawner>();
         HideGOUI();
     }
 
@@ -29,6 +32,8 @@ public class GameOver : MonoBehaviour
 
         GOMenuButton = ui.Q<Button>("GOMenuButton");
         GOMenuButton.clicked += OnGOMenuButtonClicked;
+
+        roundsSurvivedLabel = ui.Q<Label>("GORoundsSurvived");
     }
 
     void OnGORetryButtonClicked()
@@ -50,6 +55,10 @@ public class GameOver : MonoBehaviour
 
     public void ShowGOUI()
     {
+        if (roundsSurvivedLabel != null && waveSpawner != null)
+        {
+            roundsSurvivedLabel.text = "Rounds Survived: " + waveSpawner.GetWaveIndex();
+        }
         ui.style.display = DisplayStyle.Flex;
     }
 }
