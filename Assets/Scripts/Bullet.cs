@@ -80,4 +80,9 @@ public class Bullet : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, explosionRadius);
     }
+
+    public Transform GetCurrentTarget()
+    {
+        return target;
+    }
 }
