@@ -29,9 +29,13 @@ public class Enemy : MonoBehaviour
         PlayerStats.Money += value;
 
         GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
-        Destroy(effect, 5f);
+        if(Application.isEditor)
+            DestroyImmediate(effect);
+        else
+            Destroy(effect, 5f);
 
-        Destroy(gameObject);
+
+        DestroyImmediate(gameObject);
     }
 
 
@@ -61,6 +65,6 @@ public class Enemy : MonoBehaviour
     void EndPath()
     {
         PlayerStats.Lives--;
-        Destroy(gameObject);
+        DestroyImmediate(gameObject);
     }
 }
