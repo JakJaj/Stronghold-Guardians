@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource enemyHit;
     [SerializeField] AudioSource ufoDeath;
+    [SerializeField] AudioSource placeDefence;
 
     [Header("Audio Clip")]
     public AudioClip background;
@@ -37,5 +38,10 @@ public class AudioManager : MonoBehaviour
     public void PlayUfoDeath(AudioClip clip)
     {
         ufoDeath.PlayOneShot(clip);
+    }
+
+    public void PlayPlaceDefence(AudioClip clip)
+    {
+        placeDefence.PlayOneShot(clip);
     }
 }
