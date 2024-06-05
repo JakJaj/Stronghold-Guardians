@@ -57,5 +57,6 @@ public class AudioManager : MonoBehaviour
         enemyHit.Stop();
         ufoDeath.Stop();
         placeDefence.Stop();
+        gameOver.Stop();
     }
 }
