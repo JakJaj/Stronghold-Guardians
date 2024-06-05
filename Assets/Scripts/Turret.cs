@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Turret : MonoBehaviour
 {
-
     private Transform target;
+    AudioManager audioManager;
 
     [Header("Attributes")]
 
@@ -19,6 +19,16 @@ public class Turret : MonoBehaviour
     public float turnSpeed = 10f;
     public GameObject bulletPrefab;
     public Transform firePoint;
+
+    [Header("Audio")]
+    [SerializeField] AudioSource shootSource;
+    public AudioClip shootSound;
+
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     void Start()
     {
@@ -79,6 +89,8 @@ public class Turret : MonoBehaviour
 
         if (bullet != null)
             bullet.Seek(target);
+
+        shootSource.PlayOneShot(shootSound);
     }
 
     void OnDrawGizmosSelected()
