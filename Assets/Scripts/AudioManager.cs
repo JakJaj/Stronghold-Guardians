@@ -21,4 +21,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip buying_staff;
     public AudioClip game_over;
     public AudioClip new_wave;
+
+    private void Start()
+    {
+        musicSource.clip = background;
+        musicSource.Play();
+    }
 }
