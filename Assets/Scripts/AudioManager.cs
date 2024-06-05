@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource enemyHit;
     [SerializeField] AudioSource ufoDeath;
     [SerializeField] AudioSource placeDefence;
+    [SerializeField] AudioSource gameOver;
 
     [Header("Audio Clip")]
     public AudioClip background;
@@ -43,5 +44,18 @@ public class AudioManager : MonoBehaviour
     public void PlayPlaceDefence(AudioClip clip)
     {
         placeDefence.PlayOneShot(clip);
+    }
+
+    public void PlayGameOver(AudioClip clip)
+    {
+        gameOver.PlayOneShot(clip);
+    }
+
+    public void StopAllAudio()
+    {
+        musicSource.Stop();
+        enemyHit.Stop();
+        ufoDeath.Stop();
+        placeDefence.Stop();
     }
 }
