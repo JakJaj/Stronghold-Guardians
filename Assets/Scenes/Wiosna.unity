@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9536,7 +9536,7 @@ MonoBehaviour:
   canon: {fileID: 8300000, guid: eb0755cd733cd5d4ebb5a1cc6eb2f6ef, type: 3}
   catapult: {fileID: 8300000, guid: 17340e0d0922817418282f9dc49e6208, type: 3}
   crosbow: {fileID: 8300000, guid: ed594cf0464c6ea44bc77634c14af34a, type: 3}
-  place_deffence: {fileID: 8300000, guid: cc5389373816e7448a44da9bcd1417ed, type: 3}
+  place_deffence: {fileID: 8300000, guid: b1b0ba17576e86642bc224a132e7ee35, type: 3}
   tower_destroy: {fileID: 8300000, guid: 56590aab1943d404491f49c23c1f7dd8, type: 3}
   upgrade: {fileID: 8300000, guid: b6618c98a10badd4dbe952f1ffba5c7a, type: 3}
   buying_staff: {fileID: 8300000, guid: b1b0ba17576e86642bc224a132e7ee35, type: 3}
@@ -13512,7 +13512,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.01
   m_Pitch: 1
   Loop: 0
   Mute: 0
