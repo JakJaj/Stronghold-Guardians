@@ -74,5 +74,7 @@ public class Enemy : MonoBehaviour
         PlayerStats.Lives--;
         WaveSpawner.EnemiesAlive--;
         Destroy(gameObject);
+
+        audioManager.PlayEnemyHit(audioManager.damage);
     }
 }
