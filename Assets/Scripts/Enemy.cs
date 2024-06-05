@@ -40,6 +40,8 @@ public class Enemy : MonoBehaviour
 
         audioManager.PlayUfoDeath(audioManager.ufo_death);
 
+        WaveSpawner.EnemiesAlive--;
+
         Destroy(gameObject);
     }
 
@@ -70,6 +72,7 @@ public class Enemy : MonoBehaviour
     void EndPath()
     {
         PlayerStats.Lives--;
+        WaveSpawner.EnemiesAlive--;
         Destroy(gameObject);
     }
 }

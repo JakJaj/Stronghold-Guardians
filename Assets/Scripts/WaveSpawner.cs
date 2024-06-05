@@ -3,10 +3,11 @@ using System.Collections;
 
 public class WaveSpawner : MonoBehaviour
 {
+    public static int EnemiesAlive = 0;
     public Transform enemyPrefab;
     public Transform spawnPoint;
     public float timeBetweenWaves = 5f;
-    private float countdown = 2f;
+    private float countdown = 10f;
     private int waveIndex = 0;
 
     public float GetCountdown()
@@ -21,10 +22,16 @@ public class WaveSpawner : MonoBehaviour
 
     void Update()
     {
+        if (EnemiesAlive > 0)
+        {
+            return;
+        }
+
         if (countdown <= 0f)
         {
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves;
+            return;
         }
 
         countdown -= Time.deltaTime;
@@ -45,5 +52,6 @@ public class WaveSpawner : MonoBehaviour
     void SpawnEnemy()
     {
         Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        EnemiesAlive++;
     }
 }
