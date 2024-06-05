@@ -9,6 +9,13 @@ public class Bullet : MonoBehaviour
     public float explosionRadius = 0f;
     public GameObject impactEffect;
 
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     public void Seek(Transform _target)
     {
         target = _target;
@@ -40,6 +47,7 @@ public class Bullet : MonoBehaviour
     {
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effectIns, 5f);
+        audioManager.PlayEnemyHit(audioManager.damage);
 
         if (explosionRadius > 0f)
         {

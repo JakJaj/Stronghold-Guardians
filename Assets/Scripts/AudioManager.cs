@@ -6,7 +6,8 @@ public class AudioManager : MonoBehaviour
 {
     [Header("Audio Source")]
     [SerializeField] AudioSource musicSource;
-    [SerializeField] AudioSource SFXSource;
+    [SerializeField] AudioSource enemyHit;
+    [SerializeField] AudioSource ufoDeath;
 
     [Header("Audio Clip")]
     public AudioClip background;
@@ -28,8 +29,13 @@ public class AudioManager : MonoBehaviour
         musicSource.Play();
     }
 
-    public void PlaySFX(AudioClip clip)
+    public void PlayEnemyHit(AudioClip clip)
     {
-        SFXSource.PlayOneShot(clip);
+        enemyHit.PlayOneShot(clip);
+    }
+
+    public void PlayUfoDeath(AudioClip clip)
+    {
+        ufoDeath.PlayOneShot(clip);
     }
 }
