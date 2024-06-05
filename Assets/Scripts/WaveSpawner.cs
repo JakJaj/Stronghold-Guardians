@@ -20,6 +20,11 @@ public class WaveSpawner : MonoBehaviour
         return waveIndex;
     }
 
+    public void SetWaveIndex(int index)
+    {
+        waveIndex = index;
+    }
+
     void Update()
     {
         if (EnemiesAlive > 0)
@@ -62,5 +67,10 @@ public class WaveSpawner : MonoBehaviour
     {
         Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
         EnemiesAlive++;
+    }
+
+    public static void ResetStatics()
+    {
+        EnemiesAlive = 0;
     }
 }

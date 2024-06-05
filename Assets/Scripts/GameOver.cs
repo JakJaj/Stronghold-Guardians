@@ -12,7 +12,6 @@ public class GameOver : MonoBehaviour
     BuildManager buildManager;
     private string levelToLoad = "MainMenu";
     private WaveSpawner waveSpawner;
-
     AudioManager audioManager;
 
 
@@ -46,6 +45,7 @@ public class GameOver : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
+        WaveSpawner.ResetStatics();
     }
 
     void OnGOMenuButtonClicked()
