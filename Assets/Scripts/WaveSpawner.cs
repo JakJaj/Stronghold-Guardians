@@ -50,6 +50,12 @@ public class WaveSpawner : MonoBehaviour
         }
 
         waveIndex++;
+
+        if (waveIndex == waves.Length)
+        {
+            Debug.Log("LEVEL WON!");
+            this.enabled = false;
+        }
     }
 
     void SpawnEnemy(GameObject enemy)
