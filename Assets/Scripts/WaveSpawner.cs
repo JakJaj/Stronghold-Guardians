@@ -76,11 +76,15 @@ public class WaveSpawner : MonoBehaviour
             shopController.HideShopUI();
             levelCompleted.ShowLCUI();
 
-            // Odblokuj przycisk na podstawie nazwy przechowywanej w nextButtonToUnlock
-            MainMenuManager mainMenuManager = FindObjectOfType<MainMenuManager>();
-            if (mainMenuManager != null && !string.IsNullOrEmpty(nextButtonToUnlock))
+            // Zapisuje aktualny waveIndex przed przejściem do menu
+            PlayerPrefs.SetInt("WaveIndex", waveIndex);
+            PlayerPrefs.Save(); // Upewnij się, że dane są zapisane
+
+            // Zapisz informację o odblokowanym przycisku
+            if (!string.IsNullOrEmpty(nextButtonToUnlock))
             {
-                mainMenuManager.UnlockButton(nextButtonToUnlock);
+                PlayerPrefs.SetInt(nextButtonToUnlock, 1); // 1 oznacza odblokowany
+                PlayerPrefs.Save();
             }
         }
     }

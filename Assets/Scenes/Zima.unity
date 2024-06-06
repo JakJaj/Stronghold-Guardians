@@ -5219,6 +5219,7 @@ GameObject:
   - component: {fileID: 425654978}
   - component: {fileID: 425654977}
   - component: {fileID: 425654982}
+  - component: {fileID: 425654983}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -5306,6 +5307,20 @@ MonoBehaviour:
     rate: 2
   spawnPoint: {fileID: 1033384939}
   timeBetweenWaves: 3
+  nextButtonToUnlock: MainMenuSpringButton
+--- !u!114 &425654983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425654976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33569748066ca9041a3f039a9a70e208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonToUnlockName: MainMenuSpringButton
 --- !u!1001 &436082723
 PrefabInstance:
   m_ObjectHideFlags: 0

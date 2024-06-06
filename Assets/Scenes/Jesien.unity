@@ -780,6 +780,7 @@ GameObject:
   - component: {fileID: 57110620}
   - component: {fileID: 57110619}
   - component: {fileID: 57110618}
+  - component: {fileID: 57110623}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -858,6 +859,7 @@ MonoBehaviour:
     rate: 1
   spawnPoint: {fileID: 979304721}
   timeBetweenWaves: 5
+  nextButtonToUnlock: MainMenuWinterButton
 --- !u!4 &57110622
 Transform:
   m_ObjectHideFlags: 0
@@ -873,6 +875,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &57110623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57110617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33569748066ca9041a3f039a9a70e208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonToUnlockName: MainMenuWinterButton
 --- !u!4 &62849813 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6925671662619654164, guid: ff27845507e0941f8ab5fd4f150a5b61, type: 3}

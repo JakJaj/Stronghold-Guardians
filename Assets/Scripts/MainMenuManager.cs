@@ -8,10 +8,12 @@ public class MainMenuManager : MonoBehaviour
     private Button winterButton;
     private Button springButton;
     private Button quitButton;
+    public VisualElement ui;
 
     private void Awake()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
+        ui = root.Q<VisualElement>();
 
         summerButton = root.Q<Button>("MainMenuSummerButton");
         autumnButton = root.Q<Button>("MainMenuAutumnButton");
@@ -23,24 +25,28 @@ public class MainMenuManager : MonoBehaviour
         autumnButton.SetEnabled(false);
         winterButton.SetEnabled(false);
         springButton.SetEnabled(false);
+
+        // Odczytaj stan przycisków z PlayerPrefs
+        if (PlayerPrefs.GetInt("MainMenuAutumnButton", 0) == 1)
+        {
+            autumnButton.SetEnabled(true);
+        }
+        if (PlayerPrefs.GetInt("MainMenuWinterButton", 0) == 1)
+        {
+            winterButton.SetEnabled(true);
+        }
+        if (PlayerPrefs.GetInt("MainMenuSpringButton", 0) == 1)
+        {
+            springButton.SetEnabled(true);
+        }
     }
 
     public void UnlockButton(string buttonName)
     {
-        switch (buttonName)
+        var button = ui.Q<Button>(buttonName);
+        if (button != null)
         {
-            case "MainMenuAutumnButton":
-                autumnButton.SetEnabled(true);
-                break;
-            case "MainMenuWinterButton":
-                winterButton.SetEnabled(true);
-                break;
-            case "MainMenuSpringButton":
-                springButton.SetEnabled(true);
-                break;
-            default:
-                Debug.LogWarning("Button name not recognized: " + buttonName);
-                break;
+            button.SetEnabled(true); // Odblokuj przycisk
         }
     }
 }

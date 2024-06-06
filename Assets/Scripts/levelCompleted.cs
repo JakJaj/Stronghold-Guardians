@@ -1,4 +1,3 @@
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -13,7 +12,6 @@ public class LevelCompleted : MonoBehaviour
     private string levelToLoad = "MainMenu";
     private WaveSpawner waveSpawner;
     AudioManager audioManager;
-
 
     private void Awake()
     {
