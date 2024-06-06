@@ -64,11 +64,11 @@ public class WaveSpawner : MonoBehaviour
 
         for (int i = 0; i < wave.count; i++)
         {
+            audioManager.PlayNewWave(audioManager.new_wave);
+
             SpawnEnemy(wave.enemy);
             yield return new WaitForSeconds(1f / wave.rate);
         }
-
-        audioManager.PlayNewWave(audioManager.new_wave);
 
         waveIndex++;
 
