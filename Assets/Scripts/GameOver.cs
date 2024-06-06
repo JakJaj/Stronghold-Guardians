@@ -15,19 +15,18 @@ public class GameOver : MonoBehaviour
     AudioManager audioManager;
 
 
+    void Start()
+    {
+        waveSpawner = FindObjectOfType<WaveSpawner>();
+        HideGOUI();
+    }
+
     private void Awake()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
         ui = root.Q<VisualElement>();
 
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-    }
-
-    void Start()
-    {
-        buildManager = BuildManager.instance;
-        waveSpawner = FindObjectOfType<WaveSpawner>();
-        HideGOUI();
     }
 
     private void OnEnable()
@@ -41,10 +40,17 @@ public class GameOver : MonoBehaviour
         roundsSurvivedLabel = ui.Q<Label>("GORoundsSurvived");
     }
 
+    private void OnDisable()
+    {
+        GORetryButton.clicked -= OnGORetryButtonClicked;
+        GOMenuButton.clicked -= OnGOMenuButtonClicked;
+    }
+
     void OnGORetryButtonClicked()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
         WaveSpawner.ResetStatics();
     }
 

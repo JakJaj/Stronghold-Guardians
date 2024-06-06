@@ -13,19 +13,19 @@ public class LevelCompleted : MonoBehaviour
     private WaveSpawner waveSpawner;
     AudioManager audioManager;
 
+
+    void Start()
+    {
+        HideLCUI();
+        buildManager = BuildManager.instance;
+    }
+
     private void Awake()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
         ui = root.Q<VisualElement>();
 
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-    }
-
-    void Start()
-    {
-        buildManager = BuildManager.instance;
-        waveSpawner = FindObjectOfType<WaveSpawner>();
-        HideLCUI();
     }
 
     private void OnEnable()
@@ -35,14 +35,18 @@ public class LevelCompleted : MonoBehaviour
 
         LCMenuButton = ui.Q<Button>("LCMenuButton");
         LCMenuButton.clicked += OnLCMenuButtonClicked;
+    }
 
-        roundsSurvivedLabel = ui.Q<Label>("GORoundsSurvived");
+    private void OnDisable()
+    {
+        LCRetryButton.clicked -= OnLCRetryButtonClicked;
+        LCMenuButton.clicked -= OnLCMenuButtonClicked;
     }
 
     void OnLCRetryButtonClicked()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         WaveSpawner.ResetStatics();
     }
 
