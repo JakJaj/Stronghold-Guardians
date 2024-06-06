@@ -6,13 +6,6 @@ public class SomeClass : MonoBehaviour
 
     void Start()
     {
-        if (GameManager.instance != null)
-        {
-            GameManager.instance.buttonToUnlockName = buttonToUnlockName;
-        }
-        else
-        {
-            Debug.LogError("GameManager.instance is null!");
-        }
+        GameManager.instance.buttonToUnlockName = buttonToUnlockName;
     }
 }
