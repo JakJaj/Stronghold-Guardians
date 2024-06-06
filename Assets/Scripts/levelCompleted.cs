@@ -66,6 +66,6 @@ public class LevelCompleted : MonoBehaviour
         ui.style.display = DisplayStyle.Flex;
 
         audioManager.StopAllAudio();
-        audioManager.PlayGameOver(audioManager.game_over);
+        audioManager.PlayVictory(audioManager.vicotry_music);
     }
 }
