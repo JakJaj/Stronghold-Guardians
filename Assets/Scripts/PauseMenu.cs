@@ -9,8 +9,8 @@ public class PauseMenu : MonoBehaviour
     private Button PauseOnRetryButtonClickedButton;
     private Button PauseMenuButton;
     private string levelToLoad = "MainMenu";
-
     BuildManager buildManager;
+    private WaveSpawner waveSpawner;
 
     void Start()
     {
@@ -52,6 +52,8 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        WaveSpawner.ResetStatics();
     }
 
     public void OnMenuButtonClicked()

@@ -4,13 +4,18 @@ public class BuildManager : MonoBehaviour
 {
     public static BuildManager instance;
 
+    AudioManager audioManager;
+
     void Awake()
     {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+
         if (instance != null)
         {
             Debug.LogError("More than one BuildManager in scene!");
             return;
         }
+
         instance = this;
     }
 
@@ -40,6 +45,8 @@ public class BuildManager : MonoBehaviour
 
         GameObject turret = (GameObject)Instantiate(turretToBuild.prefab, node.GetBuildPosition(), Quaternion.identity);
         node.turret = turret;
+
+        audioManager.PlayPlaceDefence(audioManager.place_deffence);
 
         Debug.Log("Turret built! Money left: " + PlayerStats.Money);
 

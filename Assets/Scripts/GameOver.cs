@@ -1,3 +1,4 @@
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -11,18 +12,22 @@ public class GameOver : MonoBehaviour
     BuildManager buildManager;
     private string levelToLoad = "MainMenu";
     private WaveSpawner waveSpawner;
+    AudioManager audioManager;
+
+
+    private void Awake()
+    {
+        var root = GetComponent<UIDocument>().rootVisualElement;
+        ui = root.Q<VisualElement>();
+
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     void Start()
     {
         buildManager = BuildManager.instance;
         waveSpawner = FindObjectOfType<WaveSpawner>();
         HideGOUI();
-    }
-
-    private void Awake()
-    {
-        var root = GetComponent<UIDocument>().rootVisualElement;
-        ui = root.Q<VisualElement>();
     }
 
     private void OnEnable()
@@ -40,6 +45,7 @@ public class GameOver : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
+        WaveSpawner.ResetStatics();
     }
 
     void OnGOMenuButtonClicked()
@@ -60,5 +66,8 @@ public class GameOver : MonoBehaviour
             roundsSurvivedLabel.text = "Rounds Survived: " + waveSpawner.GetWaveIndex();
         }
         ui.style.display = DisplayStyle.Flex;
+
+        audioManager.StopAllAudio();
+        audioManager.PlayGameOver(audioManager.game_over);
     }
 }

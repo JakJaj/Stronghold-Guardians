@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     public float explosionRadius = 0f;
     public GameObject impactEffect;
 
+
     public void Seek(Transform _target)
     {
         target = _target;

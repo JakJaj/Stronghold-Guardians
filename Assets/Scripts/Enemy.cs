@@ -8,6 +8,13 @@ public class Enemy : MonoBehaviour
     public int health = 100;
     public int value = 50;
     public GameObject deathEffect;
+    AudioManager audioManager;
+
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     void Start()
     {
@@ -34,6 +41,10 @@ public class Enemy : MonoBehaviour
         else
             Destroy(effect, 5f);
 
+
+        audioManager.PlayUfoDeath(audioManager.ufo_death);
+
+        WaveSpawner.EnemiesAlive--;
 
         DestroyImmediate(gameObject);
     }
@@ -65,6 +76,9 @@ public class Enemy : MonoBehaviour
     void EndPath()
     {
         PlayerStats.Lives--;
+        WaveSpawner.EnemiesAlive--;
         DestroyImmediate(gameObject);
+
+        audioManager.PlayEnemyHit(audioManager.damage);
     }
 }
