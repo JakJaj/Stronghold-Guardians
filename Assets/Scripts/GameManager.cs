@@ -44,10 +44,12 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 0f;
             pauseMenu.ShowPauseUI();
+            shopController.HideShopUI();
         }
         else
         {
             pauseMenu.ResumeGame();
+            shopController.ShowShopUI();
         }
     }
 }
