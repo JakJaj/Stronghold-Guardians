@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance; // Singleton instance
+    public static GameManager instance;
 
     private ShopController shopController;
     private GameOver gameOver;
@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     private WaveSpawner waveSpawner;
     private LevelCompleted levelCompleted;
     private bool hasWon = false;
-    public string buttonToUnlockName; // Ustaw tę wartość z Unity Inspector
+    public string buttonToUnlockName;
 
 
     void Start()

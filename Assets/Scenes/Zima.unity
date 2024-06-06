@@ -5252,7 +5252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc954269564a054469b14235358b081f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonToUnlockName: 
+  buttonToUnlockName: MainMenuSpringButton
 --- !u!114 &425654978
 MonoBehaviour:
   m_ObjectHideFlags: 0

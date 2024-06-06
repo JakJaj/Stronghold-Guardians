@@ -3,17 +3,16 @@ using UnityEngine;
 
 public class ButtonManager : MonoBehaviour
 {
-    public static ButtonManager instance; // Singleton instance
+    public static ButtonManager instance;
 
-    private HashSet<string> unlockedButtons = new HashSet<string>(); // Set to store unlocked buttons
+    private HashSet<string> unlockedButtons = new HashSet<string>();
 
     private void Awake()
     {
-        // Ensure there's only one instance of ButtonManager
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject); // Prevent ButtonManager from being destroyed on scene load
+            DontDestroyOnLoad(gameObject);
         }
         else
         {

@@ -27,7 +27,6 @@ public class MainMenu : MonoBehaviour
         quitButton.clicked += Quit;
 
         // Unlock buttons based on ButtonManager state
-        UpdateButtonState(summerButton, "MainMenusummerButton");
         UpdateButtonState(autumnButton, "MainMenuAutumnButton");
         UpdateButtonState(winterButton, "MainMenuWinterButton");
         UpdateButtonState(springButton, "MainMenuSpringButton");
