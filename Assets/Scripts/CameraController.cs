@@ -44,4 +44,35 @@ public class CameraController : MonoBehaviour
 
         transform.position = pos;
     }
+
+    public bool GetKey(string key)
+    {
+        return Input.GetKey(key);
+    }
+
+    public float GetDeltaTime()
+    {
+        return Time.deltaTime;
+    }
+
+    public float GetMousePositionY()
+    {
+        return Input.mousePosition.y;
+    }
+
+    public float GetMousePositionX()
+    {
+        return Input.mousePosition.x;
+    }
+
+    public int GetScreenHeight()
+    {
+        return Screen.height;
+    }
+
+    public int GetScreenWidth()
+    {
+        return Screen.width;
+    }
+    
 }
