@@ -14655,18 +14655,6 @@ MonoBehaviour:
   - enemy: {fileID: 492281138503103392, guid: 4f6f7e5ee2d4ca949b5622e63c1fa9e0, type: 3}
     count: 1
     rate: 2
-  - enemy: {fileID: 492281138503103392, guid: 4f6f7e5ee2d4ca949b5622e63c1fa9e0, type: 3}
-    count: 2
-    rate: 2
-  - enemy: {fileID: 492281138503103392, guid: 4f6f7e5ee2d4ca949b5622e63c1fa9e0, type: 3}
-    count: 5
-    rate: 2
-  - enemy: {fileID: 7984332044197155129, guid: 34951b054d5568a4bbb4dcc009ea9000, type: 3}
-    count: 3
-    rate: 1
-  - enemy: {fileID: 7984332044197155129, guid: 34951b054d5568a4bbb4dcc009ea9000, type: 3}
-    count: 6
-    rate: 2
   spawnPoint: {fileID: 343839862}
   timeBetweenWaves: 5
   nextButtonToUnlock: 
@@ -14726,6 +14714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc954269564a054469b14235358b081f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonToUnlockName: 
 --- !u!82 &968761713
 AudioSource:
   m_ObjectHideFlags: 0

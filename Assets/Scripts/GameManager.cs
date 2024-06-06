@@ -2,12 +2,15 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance; // Singleton instance
+
     private ShopController shopController;
     private GameOver gameOver;
     private PauseMenu pauseMenu;
     private WaveSpawner waveSpawner;
     private LevelCompleted levelCompleted;
     private bool hasWon = false;
+    public string buttonToUnlockName; // Ustaw tę wartość z Unity Inspector
 
 
     void Start()
@@ -42,7 +45,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     void EndGame()
     {
         gameOver.ShowGOUI();
@@ -70,6 +72,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("You won!");
         shopController.HideShopUI();
         levelCompleted.ShowLCUI();
-
+        ButtonManager.instance.UnlockButton(buttonToUnlockName);
+        Time.timeScale = 0f;
     }
 }
