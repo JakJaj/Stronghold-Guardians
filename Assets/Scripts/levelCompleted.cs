@@ -6,8 +6,8 @@ using UnityEngine.UIElements;
 public class LevelCompleted : MonoBehaviour
 {
     public VisualElement ui;
-    public Button GORetryButton;
-    public Button GOMenuButton;
+    public Button LCRetryButton;
+    public Button LCMenuButton;
     public Label roundsSurvivedLabel;
     BuildManager buildManager;
     private string levelToLoad = "MainMenu";
@@ -32,11 +32,11 @@ public class LevelCompleted : MonoBehaviour
 
     private void OnEnable()
     {
-        GORetryButton = ui.Q<Button>("LCRetryButton");
-        GORetryButton.clicked += OnLCRetryButtonClicked;
+        LCRetryButton = ui.Q<Button>("LCRetryButton");
+        LCRetryButton.clicked += OnLCRetryButtonClicked;
 
-        GOMenuButton = ui.Q<Button>("LCMenuButton");
-        GOMenuButton.clicked += OnLCMenuButtonClicked;
+        LCMenuButton = ui.Q<Button>("LCMenuButton");
+        LCMenuButton.clicked += OnLCMenuButtonClicked;
 
         roundsSurvivedLabel = ui.Q<Label>("GORoundsSurvived");
     }

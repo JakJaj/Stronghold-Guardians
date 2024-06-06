@@ -10,11 +10,16 @@ public class WaveSpawner : MonoBehaviour
     private float countdown = 5f;
     private int waveIndex = 0;
     private LevelCompleted levelCompleted;
+    private ShopController shopController;
+
+    // Dodana zmienna do przechowywania nazwy przycisku do odblokowania
+    public string nextButtonToUnlock;
 
     private void Awake()
     {
         // Znajdź komponent LevelCompleted na scenie
         levelCompleted = FindObjectOfType<LevelCompleted>();
+        shopController = FindObjectOfType<ShopController>();
     }
 
     public float GetCountdown()
@@ -68,18 +73,14 @@ public class WaveSpawner : MonoBehaviour
             Debug.Log("LEVEL WON!");
             Time.timeScale = 0;
             this.enabled = false;
+            shopController.HideShopUI();
+            levelCompleted.ShowLCUI();
 
-            // Wywołaj ShowLCUI w levelCompleted, aby wyświetlić UI Level Complete
-            if (levelCompleted != null)
-            {
-                levelCompleted.ShowLCUI();
-            }
-
-            // Odblokuj przycisk "AUTUMN" w menu głównym
+            // Odblokuj przycisk na podstawie nazwy przechowywanej w nextButtonToUnlock
             MainMenuManager mainMenuManager = FindObjectOfType<MainMenuManager>();
-            if (mainMenuManager != null)
+            if (mainMenuManager != null && !string.IsNullOrEmpty(nextButtonToUnlock))
             {
-                mainMenuManager.UnlockAutumnButton();
+                mainMenuManager.UnlockButton(nextButtonToUnlock);
             }
         }
     }

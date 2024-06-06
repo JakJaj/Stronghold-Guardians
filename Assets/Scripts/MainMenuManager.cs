@@ -19,13 +19,28 @@ public class MainMenuManager : MonoBehaviour
         springButton = root.Q<Button>("MainMenuSpringButton");
         quitButton = root.Q<Button>("MainMenuQuitButton");
 
+        // Zablokuj wszystkie przyciski poza "SUMMER" i "QUIT"
         autumnButton.SetEnabled(false);
         winterButton.SetEnabled(false);
         springButton.SetEnabled(false);
     }
 
-    public void UnlockAutumnButton()
+    public void UnlockButton(string buttonName)
     {
-        autumnButton.SetEnabled(true);
+        switch (buttonName)
+        {
+            case "MainMenuAutumnButton":
+                autumnButton.SetEnabled(true);
+                break;
+            case "MainMenuWinterButton":
+                winterButton.SetEnabled(true);
+                break;
+            case "MainMenuSpringButton":
+                springButton.SetEnabled(true);
+                break;
+            default:
+                Debug.LogWarning("Button name not recognized: " + buttonName);
+                break;
+        }
     }
 }
