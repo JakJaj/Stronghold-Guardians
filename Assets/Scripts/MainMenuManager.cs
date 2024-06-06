@@ -21,12 +21,10 @@ public class MainMenuManager : MonoBehaviour
         springButton = root.Q<Button>("MainMenuSpringButton");
         quitButton = root.Q<Button>("MainMenuQuitButton");
 
-        // Zablokuj wszystkie przyciski poza "SUMMER" i "QUIT"
         autumnButton.SetEnabled(false);
         winterButton.SetEnabled(false);
         springButton.SetEnabled(false);
 
-        // Odczytaj stan przycisków z PlayerPrefs
         if (PlayerPrefs.GetInt("MainMenuAutumnButton", 0) == 1)
         {
             autumnButton.SetEnabled(true);
@@ -46,7 +44,7 @@ public class MainMenuManager : MonoBehaviour
         var button = ui.Q<Button>(buttonName);
         if (button != null)
         {
-            button.SetEnabled(true); // Odblokuj przycisk
+            button.SetEnabled(true);
         }
     }
 }

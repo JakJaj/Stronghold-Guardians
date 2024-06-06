@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class SomeClass : MonoBehaviour
 {
-    public string buttonToUnlockName; // Nazwa przycisku do odblokowania
+    public string buttonToUnlockName;
     private WaveSpawner waveSpawner;
 
     void Start()
     {
         waveSpawner = FindObjectOfType<WaveSpawner>();
-        waveSpawner.nextButtonToUnlock = buttonToUnlockName; // Ustawienie nazwy przycisku
+        waveSpawner.nextButtonToUnlock = buttonToUnlockName;
     }
 }

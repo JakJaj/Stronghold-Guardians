@@ -12,12 +12,11 @@ public class WaveSpawner : MonoBehaviour
     private LevelCompleted levelCompleted;
     private ShopController shopController;
 
-    // Dodana zmienna do przechowywania nazwy przycisku do odblokowania
+
     public string nextButtonToUnlock;
 
     private void Awake()
     {
-        // Znajdź komponent LevelCompleted na scenie
         levelCompleted = FindObjectOfType<LevelCompleted>();
         shopController = FindObjectOfType<ShopController>();
     }
@@ -76,14 +75,12 @@ public class WaveSpawner : MonoBehaviour
             shopController.HideShopUI();
             levelCompleted.ShowLCUI();
 
-            // Zapisuje aktualny waveIndex przed przejściem do menu
             PlayerPrefs.SetInt("WaveIndex", waveIndex);
-            PlayerPrefs.Save(); // Upewnij się, że dane są zapisane
+            PlayerPrefs.Save();
 
-            // Zapisz informację o odblokowanym przycisku
             if (!string.IsNullOrEmpty(nextButtonToUnlock))
             {
-                PlayerPrefs.SetInt(nextButtonToUnlock, 1); // 1 oznacza odblokowany
+                PlayerPrefs.SetInt(nextButtonToUnlock, 1);
                 PlayerPrefs.Save();
             }
         }
