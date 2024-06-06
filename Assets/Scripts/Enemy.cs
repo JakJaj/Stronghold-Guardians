@@ -36,13 +36,17 @@ public class Enemy : MonoBehaviour
         PlayerStats.Money += value;
 
         GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
-        Destroy(effect, 5f);
+        if(Application.isEditor)
+            DestroyImmediate(effect);
+        else
+            Destroy(effect, 5f);
+
 
         audioManager.PlayUfoDeath(audioManager.ufo_death);
 
         WaveSpawner.EnemiesAlive--;
 
-        Destroy(gameObject);
+        DestroyImmediate(gameObject);
     }
 
 
@@ -73,7 +77,7 @@ public class Enemy : MonoBehaviour
     {
         PlayerStats.Lives--;
         WaveSpawner.EnemiesAlive--;
-        Destroy(gameObject);
+        DestroyImmediate(gameObject);
 
         audioManager.PlayEnemyHit(audioManager.damage);
     }

@@ -3,8 +3,10 @@ using System.Collections;
 
 public class Turret : MonoBehaviour
 {
+
     private Transform target;
     AudioManager audioManager;
+
 
     [Header("Attributes")]
 
@@ -35,7 +37,7 @@ public class Turret : MonoBehaviour
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
-    void UpdateTarget()
+    public void UpdateTarget()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         float shortestDistance = Mathf.Infinity;
