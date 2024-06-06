@@ -11,16 +11,13 @@ public class WaveSpawner : MonoBehaviour
     private int waveIndex = 0;
     private LevelCompleted levelCompleted;
     private ShopController shopController;
-    AudioManager audioManager;
-
-
+    private AudioManager audioManager;
     public string nextButtonToUnlock;
 
     private void Awake()
     {
         levelCompleted = FindObjectOfType<LevelCompleted>();
         shopController = FindObjectOfType<ShopController>();
-
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
@@ -65,30 +62,11 @@ public class WaveSpawner : MonoBehaviour
         for (int i = 0; i < wave.count; i++)
         {
             audioManager.PlayNewWave(audioManager.new_wave);
-
             SpawnEnemy(wave.enemy);
             yield return new WaitForSeconds(1f / wave.rate);
         }
 
         waveIndex++;
-
-        if (waveIndex == waves.Length)
-        {
-            Debug.Log("LEVEL WON!");
-            Time.timeScale = 0;
-            this.enabled = false;
-            shopController.HideShopUI();
-            levelCompleted.ShowLCUI();
-
-            PlayerPrefs.SetInt("WaveIndex", waveIndex);
-            PlayerPrefs.Save();
-
-            if (!string.IsNullOrEmpty(nextButtonToUnlock))
-            {
-                PlayerPrefs.SetInt(nextButtonToUnlock, 1);
-                PlayerPrefs.Save();
-            }
-        }
     }
 
     void SpawnEnemy(GameObject enemy)
@@ -100,5 +78,10 @@ public class WaveSpawner : MonoBehaviour
     public static void ResetStatics()
     {
         EnemiesAlive = 0;
+    }
+
+    public bool AllWavesCompleted()
+    {
+        return waveIndex == waves.Length && EnemiesAlive == 0;
     }
 }
