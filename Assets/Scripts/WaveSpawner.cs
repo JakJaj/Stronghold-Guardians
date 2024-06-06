@@ -9,6 +9,13 @@ public class WaveSpawner : MonoBehaviour
     public float timeBetweenWaves = 3f;
     private float countdown = 5f;
     private int waveIndex = 0;
+    private LevelCompleted levelCompleted;
+
+    private void Awake()
+    {
+        // Znajdź komponent LevelCompleted na scenie
+        levelCompleted = FindObjectOfType<LevelCompleted>();
+    }
 
     public float GetCountdown()
     {
@@ -59,7 +66,12 @@ public class WaveSpawner : MonoBehaviour
         if (waveIndex == waves.Length)
         {
             Debug.Log("LEVEL WON!");
+            Time.timeScale = 0;
             this.enabled = false;
+            if (levelCompleted != null)
+            {
+                levelCompleted.ShowLCUI();
+            }
         }
     }
 
