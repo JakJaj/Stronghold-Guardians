@@ -20,31 +20,5 @@ public class MainMenuManager : MonoBehaviour
         winterButton = root.Q<Button>("MainMenuWinterButton");
         springButton = root.Q<Button>("MainMenuSpringButton");
         quitButton = root.Q<Button>("MainMenuQuitButton");
-
-        autumnButton.SetEnabled(false);
-        winterButton.SetEnabled(false);
-        springButton.SetEnabled(false);
-
-        if (PlayerPrefs.GetInt("MainMenuAutumnButton", 0) == 1)
-        {
-            autumnButton.SetEnabled(true);
-        }
-        if (PlayerPrefs.GetInt("MainMenuWinterButton", 0) == 1)
-        {
-            winterButton.SetEnabled(true);
-        }
-        if (PlayerPrefs.GetInt("MainMenuSpringButton", 0) == 1)
-        {
-            springButton.SetEnabled(true);
-        }
-    }
-
-    public void UnlockButton(string buttonName)
-    {
-        var button = ui.Q<Button>(buttonName);
-        if (button != null)
-        {
-            button.SetEnabled(true);
-        }
     }
 }
