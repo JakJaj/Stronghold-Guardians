@@ -11,6 +11,7 @@ public class WaveSpawner : MonoBehaviour
     private int waveIndex = 0;
     private LevelCompleted levelCompleted;
     private ShopController shopController;
+    AudioManager audioManager;
 
 
     public string nextButtonToUnlock;
@@ -19,6 +20,8 @@ public class WaveSpawner : MonoBehaviour
     {
         levelCompleted = FindObjectOfType<LevelCompleted>();
         shopController = FindObjectOfType<ShopController>();
+
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     public float GetCountdown()
@@ -64,6 +67,8 @@ public class WaveSpawner : MonoBehaviour
             SpawnEnemy(wave.enemy);
             yield return new WaitForSeconds(1f / wave.rate);
         }
+
+        audioManager.PlayNewWave(audioManager.new_wave);
 
         waveIndex++;
 

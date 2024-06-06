@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource placeDefence;
     [SerializeField] AudioSource gameOver;
     [SerializeField] AudioSource victory;
+    [SerializeField] AudioSource newWave;
 
     [Header("Audio Clip")]
     public AudioClip background;
@@ -56,6 +57,11 @@ public class AudioManager : MonoBehaviour
     public void PlayVictory(AudioClip clip)
     {
         victory.PlayOneShot(clip);
+    }
+
+    public void PlayNewWave(AudioClip clip)
+    {
+        newWave.PlayOneShot(clip);
     }
 
     public void StopAllAudio()
