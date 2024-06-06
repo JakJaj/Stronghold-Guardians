@@ -68,9 +68,18 @@ public class WaveSpawner : MonoBehaviour
             Debug.Log("LEVEL WON!");
             Time.timeScale = 0;
             this.enabled = false;
+
+            // Wywołaj ShowLCUI w levelCompleted, aby wyświetlić UI Level Complete
             if (levelCompleted != null)
             {
                 levelCompleted.ShowLCUI();
+            }
+
+            // Odblokuj przycisk "AUTUMN" w menu głównym
+            MainMenuManager mainMenuManager = FindObjectOfType<MainMenuManager>();
+            if (mainMenuManager != null)
+            {
+                mainMenuManager.UnlockAutumnButton();
             }
         }
     }
