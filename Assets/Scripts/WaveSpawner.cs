@@ -9,6 +9,17 @@ public class WaveSpawner : MonoBehaviour
     public float timeBetweenWaves = 3f;
     private float countdown = 5f;
     private int waveIndex = 0;
+    private LevelCompleted levelCompleted;
+    private ShopController shopController;
+    private AudioManager audioManager;
+    public string nextButtonToUnlock;
+
+    private void Awake()
+    {
+        levelCompleted = FindObjectOfType<LevelCompleted>();
+        shopController = FindObjectOfType<ShopController>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     public float GetCountdown()
     {
@@ -48,6 +59,8 @@ public class WaveSpawner : MonoBehaviour
 
         Wave wave = waves[waveIndex];
 
+        audioManager.PlayNewWave(audioManager.new_wave);
+
         for (int i = 0; i < wave.count; i++)
         {
             SpawnEnemy(wave.enemy);
@@ -55,12 +68,6 @@ public class WaveSpawner : MonoBehaviour
         }
 
         waveIndex++;
-
-        if (waveIndex == waves.Length)
-        {
-            Debug.Log("LEVEL WON!");
-            this.enabled = false;
-        }
     }
 
     void SpawnEnemy(GameObject enemy)
@@ -72,5 +79,10 @@ public class WaveSpawner : MonoBehaviour
     public static void ResetStatics()
     {
         EnemiesAlive = 0;
+    }
+
+    public bool AllWavesCompleted()
+    {
+        return waveIndex == waves.Length && EnemiesAlive == 0;
     }
 }

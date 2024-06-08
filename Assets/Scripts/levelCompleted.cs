@@ -2,11 +2,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
-public class GameOver : MonoBehaviour
+public class LevelCompleted : MonoBehaviour
 {
     public VisualElement ui;
-    public Button GORetryButton;
-    public Button GOMenuButton;
+    public Button LCRetryButton;
+    public Button LCMenuButton;
     public Label roundsSurvivedLabel;
     BuildManager buildManager;
     private string levelToLoad = "MainMenu";
@@ -16,8 +16,8 @@ public class GameOver : MonoBehaviour
 
     void Start()
     {
-        waveSpawner = FindObjectOfType<WaveSpawner>();
-        HideGOUI();
+        HideLCUI();
+        buildManager = BuildManager.instance;
     }
 
     private void Awake()
@@ -30,41 +30,38 @@ public class GameOver : MonoBehaviour
 
     private void OnEnable()
     {
-        GORetryButton = ui.Q<Button>("GORetryButton");
-        GORetryButton.clicked += OnGORetryButtonClicked;
+        LCRetryButton = ui.Q<Button>("LCRetryButton");
+        LCRetryButton.clicked += OnLCRetryButtonClicked;
 
-        GOMenuButton = ui.Q<Button>("GOMenuButton");
-        GOMenuButton.clicked += OnGOMenuButtonClicked;
-
-        roundsSurvivedLabel = ui.Q<Label>("GORoundsSurvived");
+        LCMenuButton = ui.Q<Button>("LCMenuButton");
+        LCMenuButton.clicked += OnLCMenuButtonClicked;
     }
 
     private void OnDisable()
     {
-        GORetryButton.clicked -= OnGORetryButtonClicked;
-        GOMenuButton.clicked -= OnGOMenuButtonClicked;
+        LCRetryButton.clicked -= OnLCRetryButtonClicked;
+        LCMenuButton.clicked -= OnLCMenuButtonClicked;
     }
 
-    void OnGORetryButtonClicked()
+    void OnLCRetryButtonClicked()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
         WaveSpawner.ResetStatics();
     }
 
-    void OnGOMenuButtonClicked()
+    void OnLCMenuButtonClicked()
     {
         Debug.Log("Go to menu.");
         SceneManager.LoadScene(levelToLoad);
     }
 
-    public void HideGOUI()
+    public void HideLCUI()
     {
         ui.style.display = DisplayStyle.None;
     }
 
-    public void ShowGOUI()
+    public void ShowLCUI()
     {
         if (roundsSurvivedLabel != null && waveSpawner != null)
         {
@@ -73,6 +70,6 @@ public class GameOver : MonoBehaviour
         ui.style.display = DisplayStyle.Flex;
 
         audioManager.StopAllAudio();
-        audioManager.PlayGameOver(audioManager.game_over);
+        audioManager.PlayVictory(audioManager.vicotry_music);
     }
 }

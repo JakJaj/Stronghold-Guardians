@@ -25,6 +25,16 @@ public class MainMenu : MonoBehaviour
         springButton.clicked += springPlay;
 
         quitButton.clicked += Quit;
+
+        // Unlock buttons based on ButtonManager state
+        UpdateButtonState(autumnButton, "MainMenuAutumnButton");
+        UpdateButtonState(winterButton, "MainMenuWinterButton");
+        UpdateButtonState(springButton, "MainMenuSpringButton");
+    }
+
+    private void UpdateButtonState(Button button, string buttonName)
+    {
+        button.SetEnabled(ButtonManager.instance.IsButtonUnlocked(buttonName));
     }
 
     public void summerPlay()

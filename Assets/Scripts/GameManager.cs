@@ -2,18 +2,26 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+
     private ShopController shopController;
     private GameOver gameOver;
     private PauseMenu pauseMenu;
+    private WaveSpawner waveSpawner;
+    private LevelCompleted levelCompleted;
+    private bool hasWon = false;
+    public string buttonToUnlockName;
+
 
     void Start()
     {
-        //Set the fps Limit
         Application.targetFrameRate = 60;
 
+        waveSpawner = FindObjectOfType<WaveSpawner>();
         shopController = FindObjectOfType<ShopController>();
         gameOver = FindObjectOfType<GameOver>();
         pauseMenu = FindObjectOfType<PauseMenu>();
+        levelCompleted = FindObjectOfType<LevelCompleted>();
         gameOver.HideGOUI();
         pauseMenu.HidePauseUI();
     }
@@ -28,6 +36,12 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             TogglePauseMenu();
+        }
+
+        if (!hasWon && waveSpawner.AllWavesCompleted())
+        {
+            Victory();
+            hasWon = true;
         }
     }
 
@@ -44,10 +58,21 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 0f;
             pauseMenu.ShowPauseUI();
+            shopController.HideShopUI();
         }
         else
         {
             pauseMenu.ResumeGame();
+            shopController.ShowShopUI();
         }
+    }
+
+    void Victory()
+    {
+        Debug.Log("You won!");
+        shopController.HideShopUI();
+        levelCompleted.ShowLCUI();
+        ButtonManager.instance.UnlockButton(buttonToUnlockName);
+        Time.timeScale = 0f;
     }
 }

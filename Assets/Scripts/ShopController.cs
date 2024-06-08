@@ -110,12 +110,5 @@ public class ShopController : MonoBehaviour
         {
             waveCountdownLabel.text = waveSpawner.GetCountdown().ToString("F2");
         }
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            Debug.Log("Selection canceled");
-            selectedTurret = null;
-            buildManager.SetTurretToBuild(null);
-        }
     }
 }
