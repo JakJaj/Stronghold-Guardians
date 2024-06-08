@@ -57,7 +57,6 @@ public class BuildManager : MonoBehaviour
     {
         if (turret == null)
         {
-            Debug.LogError("Turret blueprint is null!");
             return;
         }
         turretToBuild = turret;

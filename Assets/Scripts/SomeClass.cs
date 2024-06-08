@@ -10,9 +10,5 @@ public class SomeClass : MonoBehaviour
         {
             GameManager.instance.buttonToUnlockName = buttonToUnlockName;
         }
-        else
-        {
-            Debug.LogError("GameManager.instance is null!");
-        }
     }
 }

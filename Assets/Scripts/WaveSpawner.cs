@@ -59,9 +59,10 @@ public class WaveSpawner : MonoBehaviour
 
         Wave wave = waves[waveIndex];
 
+        audioManager.PlayNewWave(audioManager.new_wave);
+
         for (int i = 0; i < wave.count; i++)
         {
-            audioManager.PlayNewWave(audioManager.new_wave);
             SpawnEnemy(wave.enemy);
             yield return new WaitForSeconds(1f / wave.rate);
         }

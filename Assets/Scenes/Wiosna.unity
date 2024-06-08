@@ -14657,7 +14657,7 @@ MonoBehaviour:
     rate: 2
   spawnPoint: {fileID: 343839862}
   timeBetweenWaves: 5
-  nextButtonToUnlock: 
+  nextButtonToUnlock: MainMenuSummerButton
 --- !u!4 &968761709
 Transform:
   m_ObjectHideFlags: 0
@@ -14714,7 +14714,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc954269564a054469b14235358b081f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonToUnlockName: 
+  buttonToUnlockName: MainMenuSummerButton
 --- !u!82 &968761713
 AudioSource:
   m_ObjectHideFlags: 0
